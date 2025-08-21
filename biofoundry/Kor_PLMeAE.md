@@ -108,7 +108,7 @@ PLM이 단백질을 '설계'하는 방식은 크게 두 가지 모듈로 나뉜�
     용' (알려진 부위 최적화)에 중점을 둔다. 이 두 모듈의 조합 사용은 시스템이 단백질 `fitness landscape` (적합도 환경)를 효과적으로 탐색할 수 있도록 하며, 이는 완전히 새로운 해결책을 찾는 것과 기존의 유망한 해결책을 개선하는 것 사이의 균형을 맞추기 위한 의도적인 전략을 반영한다. `fitness landscape`는 단백질 서열 공간에서 각 서열이 가지는 기능적 적합도를 지형처럼 시각화한 개념이다. 
     
 	![Pasted image 20250820214357.png](./Pasted%20image%2020250820214357.png)
-	# Visualization of two dimensions of a NK fitness landscape, Wikipedia 
+  	Visualization of two dimensions of a NK fitness landscape, Wikipedia 
 
 
 ### 5. PLMeAE 의 손과 발, Automated Biofoundry의 역할
@@ -154,7 +154,7 @@ PLMeAE의 뛰어난 성능은 실제 실험 결과를 통해 입증되었다. �
     
 - **3라운드 (Module II):** 1, 2라운드 데이터를 바탕으로 PLM이 다시 96개의 변이체를 예측하였다. 이 변이체들은 더 다양한 아미노산 조합을 가졌으며, 활성이 높은 변이체의 비율도 62.5%로 더욱 증가하였다. 그러나 최고 활성 개선은 2.1배로, 2라운드와 큰 차이가 없었다. Module II의 세 번째 라운드에서 유의미한 개선이 나타나지 않았다는 관찰은 `diminishing returns` (수확 체감) 현상을 보여준다. 이는 더 이상 기존의 탐색 방식으로는 큰 개선을 이루기 어렵다는 신호다.
 
-* *Diminishing returns (수확 체감): 생산 요소 투입량을 늘릴 때, 초기에는 생산량이 증가하지만 특정 시점부터는 증가량이 점점 줄어드는 현상을 의미
+-> Diminishing returns (수확 체감): 생산 요소 투입량을 늘릴 때, 초기에는 생산량이 증가하지만 특정 시점부터는 증가량이 점점 줄어드는 현상을 의미
     
 - **4라운드 (Module I로 전환):** 3라운드에서 Module II만으로는 더 이상 큰 개선이 어렵다고 판단한 연구진은, PLMeAE의 `Module I`을 사용하여 새로운 돌연변이 위치를 탐색하기로 결정하였다. M-R3라는 3라운드의 최고 변이체를 바탕으로 PLM(ESM-2)이 96개의 새로운 단일 변이체를 예측하였는데, 놀랍게도 이 변이체들은 기존 3라운드에서 집중했던 위치가 아닌, 효소의 다른 여러 곳에서 발견되었다. 새로운 돌연변이 부위 탐색을 위해 Module I로 전략적으로 전환한 것은 플랫폼의 `adaptive intelligence` (적응형 지능)와 `local optima`를 극복하는 능력을 보여준다.
     
