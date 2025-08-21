@@ -68,7 +68,8 @@ Fig. 1 | Overview of protein language model-enabled automatic protein evolution.
     
 - 3단계: Test (테스트) – 로봇에 의한 기능 평가
     
-    제작된 단백질 변이체들이 실제로 얼마나 잘 작동하는지 바이오파운드리 로봇들이 자동으로 실험하고 평가한다. 예를 들어, 효소의 활성도를 측정하는 것이다. 이때 모든 실험 데이터가 체계적으로 수집된다.
+    제작된 단백질 변이체들이 실제로 얼마나 잘 작동하는지 바이오파운드리 로봇들이 자동으로 실험하고 평가한다. 예를 들어, 효소의 활성도를 측정하는 것이다.
+  	이때 모든 실험 데이터가 체계적으로 수집된다.
     
 - 4단계: Learn (학습) – 인공지능의 지식 축적
     
@@ -84,14 +85,14 @@ Fig. 1 | Overview of protein language model-enabled automatic protein evolution.
 
 PLMeAE의 가장 지능적인 부분은 바로 `Protein Language Model (PLM)`이다. PLM은 단백질의 언어를 이해하고 새로운 단백질을 '설계'하는 인공지능 핵심 두뇌라고 할 수 있다. 
 
-![[Pasted image 20250820212725.png]]
+![Pasted image 20250820212725.png](./Pasted%20image%2020250820212725.png)
 * 출처: **Figure 2** | The conceptual similarities and hierarchical structure as seen in natural languages and proteins, https://pipebio.com/blog/protein-language-models
 
 PLM은 방대한 단백질 서열 데이터셋을 학습한다. 마치 인간이 수많은 책을 읽고 언어의 규칙을 깨우치는 것처럼, PLM은 다양한 단백질의 서열을 분석하며 어떤 아미노산 조합이 기능적인 단백질을 형성하는지, 단백질이 어떻게 작동하고 진화하는지에 대한 기본 원리를 스스로 파악한다. 이러한 사전 학습된 지식 덕분에 PLM은 특정 단백질에 대한 이전 실험 데이터가 없어도 그 성능을 예측할 수 있는데, 이를 `zero-shot prediction` (제로샷 예측)이라고 부른다. 
 
 PLM이 단백질을 '설계'하는 방식은 크게 두 가지 모듈로 나뉜다.
-![[Pasted image 20250820213355.png]]
-Fig. 2 | Protein language model used for protein automatic evolution. (a) Module I for engineering proteins without identified mutation sites. (b) Module II for engineering proteins with previously identified mutation sites. (c) Module I and Module II used in combination or independently. Created in BioRender. Yu, H. (2025) https:// BioRender.com/g25x718.
+![Pasted image 20250820213355.png](./Pasted%20image%2020250820213355.png)
+**Fig. 2**| Protein language model used for protein automatic evolution. (a) Module I for engineering proteins without identified mutation sites. (b) Module II for engineering proteins with previously identified mutation sites. (c) Module I and Module II used in combination or independently. Created in BioRender. Yu, H. (2025) https:// BioRender.com/g25x718.
 
 - Module I (돌연변이 위치를 알지 못할 때)
     
@@ -106,7 +107,7 @@ Fig. 2 | Protein language model used for protein automatic evolution. (a) Module
     Module I은 '탐색' (알려지지 않은 새로운 돌연변이 부위 찾기)에 중점을 두는 반면, Module II는 '활
     용' (알려진 부위 최적화)에 중점을 둔다. 이 두 모듈의 조합 사용은 시스템이 단백질 `fitness landscape` (적합도 환경)를 효과적으로 탐색할 수 있도록 하며, 이는 완전히 새로운 해결책을 찾는 것과 기존의 유망한 해결책을 개선하는 것 사이의 균형을 맞추기 위한 의도적인 전략을 반영한다. `fitness landscape`는 단백질 서열 공간에서 각 서열이 가지는 기능적 적합도를 지형처럼 시각화한 개념이다. 
     
-	![[Pasted image 20250820214357.png]]
+	![Pasted image 20250820214357.png](./Pasted%20image%2020250820214357.png)
 	# Visualization of two dimensions of a NK fitness landscape, Wikipedia 
 
 
@@ -115,8 +116,9 @@ Fig. 2 | Protein language model used for protein automatic evolution. (a) Module
 PLMeAE의 또 다른 중요한 구성 요소는 `Automated Biofoundry`이다. 이곳은 PLM이 설계한 단백질 변이체들을 실제로 제작하고 실험하는 로봇 실험실로, 최첨단 공장처럼 모든 과정이 자동화되어 있다. 
 
 바이오파운드리는 액체를 정밀하게 옮기는 로봇 팔(`liquid handler`), 온도를 조절하는 기계(`thermocycler`), DNA를 분석하는 장비(`fragment analyzer`) 등 다양한 첨단 로봇 장비들로 구성된다. 이 모든 장비들은 로봇 팔과 지능형 소프트웨어에 의해 완벽하게 연결되어 작동한다. 바이오파운드리의 효율성은 수많은 실험을 동시에 처리하고(라운드당 96개 변이체), 노동 집약적인 단계를 자동화하는 능력에서 비롯된다. 이러한 병렬 처리와 인간 개입의 최소화가 핵심이다.
-![[Pasted image 20250820220110.png]]
-Fig. 4 | Overview of automatic protein variants build and test. (a) Workflow for protein variants build and test using biofoundry.
+
+![Pasted image 20250820220110.png](./Pasted%20image%2020250820220110.png)
+**Fig. 4** | Overview of automatic protein variants build and test. (a) Workflow for protein variants build and test using biofoundry.
 
 
 - 단백질 'Build (구축)' 단계의 자동화
@@ -129,8 +131,8 @@ Fig. 4 | Overview of automatic protein variants build and test. (a) Workflow for
     `Rotanta`)가 세포 배양액을 수집하고, 시약 분배기(`Multidrop Combi`)가 새로운 배지로 교체해준 다음, 다시 인큐베이터에서 단백질을 발현시키도록 배양한다. 마지막으로, 자동 `microplate reader` (`CLARIOstar`)가 각 단백질 변이체의 효소 활성을 자동으로 측정하고, 컴퓨터 소프트웨어(`Momentum DataMiner`)가 데이터를 분석한다. 
     
 
-![[Pasted image 20250820220318.png]]
-Fig. 4 | Overview of automatic protein variants build and test. (c) Multiple layers of exception handling and data quality control for failed experimental steps.
+![Pasted image 20250820220318.png](./Pasted%20image%2020250820220318.png)
+**Fig. 4** | Overview of automatic protein variants build and test. (c) Multiple layers of exception handling and data quality control for failed experimental steps.
 
 이러한 로봇 시스템은 단순히 작업을 수행하는 것을 넘어, 스스로 오류를 확인하고 처리하는 지능적인 기능을 갖추고 있다. 예를 들어, PCR 반응이 제대로 진행되었는지, 세포가 잘 성장했는지 등을 자동으로 확인한다. 만약 문제가 발생하면, 시스템이 자동으로 해당 단계를 다시 시도하여 실험의 `reliability` (신뢰도)를 높인다. 이처럼 96개의 단백질 변이체를 제작하고 테스트하는 데 걸리는 시간은 약 59시간(프라이머 배송 시간 포함)으로, 수동 작업보다 훨씬 빠르고 정확하다. 이러한 자동화는 실험 속도를 높일 뿐만 아니라, 인간 오류를 최소화하고 포괄적인 메타데이터 추적 및 실시간 데이터 공유를 통해 `reproducibility` (재현성)를 크게 향상시킨다. 내장된 "예외 처리 및 데이터 품질 관리" 는 신뢰할 수 있는 데이터를 보장하며, 이는 효과적인 머신러닝 모델 훈련에 필수적이다.
 
@@ -142,7 +144,8 @@ PLMeAE의 뛰어난 성능은 실제 실험 결과를 통해 입증되었다. �
 
 먼저, 연구진은 pCNF-RS 효소에서 기존 연구를 통해 중요하다고 알려진 4개의 아미노산 위치(H283, P284, M285, D286)를 집중적으로 개선하기 위해 PLMeAE의 `Module II`를 사용하였다. 
 
-![[Pasted image 20250820215725.png]]Fig. 3 | Protein language model used for engineering proteins with identified mutations. (a) A scheme illustrating application of PLM for sampling informative mutants at one mutation site, assuming that four amino acids are selected. (b) A flow chart illustrating the process of PLMeAE Module II. FP, fitness predictor.
+![Pasted image 20250820215725.png](./Pasted%20image%2020250820215725.png)
+**Fig. 3**| Protein language model used for engineering proteins with identified mutations. (a) A scheme illustrating application of PLM for sampling informative mutants at one mutation site, assuming that four amino acids are selected. (b) A flow chart illustrating the process of PLMeAE Module II. FP, fitness predictor.
 
 
 - **1라운드 (Module II):** PLM(ESM-2)이 96개의 변이체 후보를 예측하였고, 바이오파운드리 로봇들이 이들을 제작하고 실험하였다. 그 결과, 가장 우수했던 변이체(M-R1)는 원래 효소보다 활성이 1.3배 향상되었다. 
