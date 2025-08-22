@@ -1,7 +1,6 @@
 
-# PLMeAE (Protein Laguage Model-enabled Automatic Evolution)
 
-### 단백질 공학을 한층 더 성장시켜줄 AI와 로봇의 통합 연구 플랫폼
+### AI와 로봇의 통합 연구를 통한 단백질 공학의 발전
 
 이번에는 단백질 공학(protein engineering)에서 AI와 Biofoundry가 사용되어 효율을 증가시킨 사례를 설명한 논문을 리뷰하려고 한다. 저번에 포스팅한 biofoundry process 논문과는 다르게 실제 생명과학 실험 및 연구 에서 사용된 사례를 다루기 때문에 생명과학도가 아닌 분들이 이번 글을 읽는데에는 어려움이 있을 것이다. 그래서 최대한 이해할 수 있도록 쉽게 풀어쓰고 어려운 단어가 있다면 정의를 하면서 써보려고 한다. 자세한 내용을 이해하기보다 전체적인 흐름을 보는 것도 괜찮다. 이 글의 전체적인 요지를 알게되면 왜 생명공학 분야에 AI와 biofoundry가 앞으로 중요한 역할을 하게 될지에 대해 좀 더 깊게 이해할 수 있을 것이다.
 
@@ -57,8 +56,9 @@ PLMeAE는 PLM이 단백질을 설계 하면, 바이오파운드리 로봇들이 
 
 PLMeAE는 `Design-Build-Test-Learn (DBTL)`이라는 특별한 주기를 반복하며 단백질을 진화시킨다. 이 주기는 마치 시험을 보고, 오답 노트를 통해 학습하여 다음 시험에서 더 나은 성과를 내는 과정과 유사하다.
 
+![Pasted image 20250820213147.png](../../images/Pasted%20image%2020250820213147.png)
 
-<figure><img src="Pasted image 20250820213147.png" alt=""><figcaption><p>Fig. 1 | Overview of protein language model-enabled automatic protein evolution. In the Desing-Build-Test-Learn loop of protein engineering, PLMs are applied to facilitate the learning and design phases, while the build and test phases are executed by a biofoundry. Created in BioRender. Yu, H. (2024) https:// BioRender.com/f92a776.</p></figcaption></figure>
+<figure><img src="/Users/kyuye/Documents/paper-review-and-tech-news-report/images/Pasted image 20250820213147.png" alt=""><figcaption><p>Fig. 1 | Overview of protein language model-enabled automatic protein evolution. In the Desing-Build-Test-Learn loop of protein engineering, PLMs are applied to facilitate the learning and design phases, while the build and test phases are executed by a biofoundry. Created in BioRender. Yu, H. (2024) https:// BioRender.com/f92a776.</p></figcaption></figure>
 
 *   1단계: Design (설계) – 지능적인 계획 수립
 
