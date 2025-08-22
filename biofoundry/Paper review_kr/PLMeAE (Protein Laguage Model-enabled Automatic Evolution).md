@@ -1,6 +1,3 @@
----
-description: Biofoundry paper review
----
 
 # PLMeAE (Protein Laguage Model-enabled Automatic Evolution)
 
