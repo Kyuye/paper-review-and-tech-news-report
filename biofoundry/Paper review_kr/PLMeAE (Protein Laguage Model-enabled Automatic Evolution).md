@@ -82,7 +82,7 @@ PLMeAE는 `Design-Build-Test-Learn (DBTL)`이라는 특별한 주기를 반복�
 PLMeAE의 가장 지능적인 부분은 바로 `Protein Language Model (PLM)`이다. PLM은 단백질의 언어를 이해하고 새로운 단백질을 '설계'하는 인공지능 핵심 두뇌라고 할 수 있다.
 
 ![출처: Figure 2 | The conceptual similarities and hierarchical structure as seen in natural languages and proteins, https://pipebio.com/blog/protein-language-models](<Pasted image 20250820212725.png>)
-
+![](Pasted%20image%2020250820212725.png)
 
 PLM은 방대한 단백질 서열 데이터셋을 학습한다. 마치 인간이 수많은 책을 읽고 언어의 규칙을 깨우치는 것처럼, PLM은 다양한 단백질의 서열을 분석하며 어떤 아미노산 조합이 기능적인 단백질을 형성하는지, 단백질이 어떻게 작동하고 진화하는지에 대한 기본 원리를 스스로 파악한다. 이러한 사전 학습된 지식 덕분에 PLM은 특정 단백질에 대한 이전 실험 데이터가 없어도 그 성능을 예측할 수 있는데, 이를 `zero-shot prediction` (제로샷 예측)이라고 부른다.
 
