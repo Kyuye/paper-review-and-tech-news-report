@@ -15,6 +15,7 @@ description: Biofoundry paper review
 ### 1. 단백질 공학의 전통적 한계: 느림/비효율적
 
 단백질의 기능 개선을 위한 주요 전략 중 하나인 `directed evolution` (유도 진화)은 효과적인 방법으로 인정받아 왔다.
+<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
 
 ***
 
@@ -26,6 +27,19 @@ directed evolution (유도진화) 란.. 유도 진화는 과학자들이 특정 
 
 이 과정을 여러 번 반복하면, 원하는 특성이 점점 더 강해진 유기체를 얻을 수 있음..!
 
+=======
+
+***
+
+directed evolution (유도진화) 란.. 유도 진화는 과학자들이 특정 목표를 달성하기 위해 유기체의 진화 과정을 인위적으로 조작하는 기술. 이 기술은 유전자 편집이나 돌연변이 유발 등을 통해 특정 형질을 가진 생명체를 빠르게 개발하는 데 사용됨. 자연적인 진화 (변이, 선택)가 수천 년에 걸쳐 무작위적으로 일어나는 것과 달리, 유도 진화는 짧은 시간 내에 원하는 결과를 얻도록 만듦. 여기에는 두가지 방법으로 진행.
+
+* mutagenesis (돌연변이 유발): 연구자들은 화학 약품이나 방사선 등을 이용해 유기체의 유전자에 무작위적인 변화(돌연변이)를 일으킴. 이렇게 하면 다양한 형질을 가진 개체들이 만들어짐
+* selection (선택): 만들어진 개체들 중에서 연구자가 원하는 특성(예: 특정 약품에 강한 효소)을 가진 개체만을 골라냄. 그리고 이 개체를 증식시켜 다음 세대를 만듦
+* Amplification (증폭,강화): 위의 과정에서 선택되고 스크리닝 과정을 거친 변이는 PCR과 같은 과정을 통해 증폭됨. 이 과정은 다음 라운드의 돌연변이 유발을 위해 진행되는 것임.
+
+이 과정을 여러 번 반복하면, 원하는 특성이 점점 더 강해진 유기체를 얻을 수 있음..!
+
+>>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 ***
 
 그러나 이 방법은 몇 가지 본질적인 한계를 지닌다.
@@ -66,14 +80,21 @@ PLMeAE는 `Design-Build-Test-Learn (DBTL)`이라는 특별한 주기를 반복�
 
     제작된 단백질 변이체들이 실제로 얼마나 잘 작동하는지 바이오파운드리 로봇들이 자동으로 실험하고 평가한다. 예를 들어, 효소의 활성도를 측정하는 것이다. 이때 모든 실험 데이터가 체계적으로 수집된다.
 *   4단계: Learn (학습) – 인공지능의 지식 축적
+<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
 
     로봇들이 실험을 통해 얻은 데이터는 다시 PLM에 전달된다. PLM은 이 데이터를 분석하여 어떤 단백 질 변이체가 왜 더 우수했는지, 어떤 아미노산 변화가 기능 개선에 기여했는지 학습한다. 이 학습 을 통해 PLM은 다음 '설계' 단계에서 더욱 정확하고 효율적인 예측을 수행할 수 있게 된다.
 
+=======
+
+    로봇들이 실험을 통해 얻은 데이터는 다시 PLM에 전달된다. PLM은 이 데이터를 분석하여 어떤 단백 질 변이체가 왜 더 우수했는지, 어떤 아미노산 변화가 기능 개선에 기여했는지 학습한다. 이 학습 을 통해 PLM은 다음 '설계' 단계에서 더욱 정확하고 효율적인 예측을 수행할 수 있게 된다.
+
+>>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 이 `DBTL cycle`은 지속적으로 반복된다. 마치 나선형 계단을 오르듯, 매번 더 나은 단백질을 찾아내고, 최종적으로 원하는 최적의 단백질을 개발할 때까지 이 과정이 이어진다. 이러한 반복적인 과정은 머신러닝의 `active learning` (능동 학습) 전략과 매우 유사하다. 이 전략에서는 모델이 정보 획득을 극대화하기 위해 다음에 어떤 실험을 수행할지 지능적으로 선택한다. 이는 무작위 또는 무차별적인 실험보다 훨씬 효율적인 접근 방식이다.
 
 ### 4. Protein Language Model (PLM)의 심층 분석
 
 PLMeAE의 가장 지능적인 부분은 바로 `Protein Language Model (PLM)`이다. PLM은 단백질의 언어를 이해하고 새로운 단백질을 '설계'하는 인공지능 핵심 두뇌라고 할 수 있다.
+<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
 
 ![출처: Figure 2 | The conceptual similarities and hierarchical structure as seen in natural languages and proteins, https://pipebio.com/blog/protein-language-models](<Pasted image 20250820212725.png>)
 
@@ -87,14 +108,37 @@ PLM이 단백질을 '설계'하는 방식은 크게 두 가지 모듈로 나뉜�
 
 *   Module I (돌연변이 위치를 알지 못할 때)
 
+=======
+
+![출처: Figure 2 | The conceptual similarities and hierarchical structure as seen in natural languages and proteins, https://pipebio.com/blog/protein-language-models](<Pasted image 20250820212725.png>)
+
+
+
+PLM은 방대한 단백질 서열 데이터셋을 학습한다. 마치 인간이 수많은 책을 읽고 언어의 규칙을 깨우치는 것처럼, PLM은 다양한 단백질의 서열을 분석하며 어떤 아미노산 조합이 기능적인 단백질을 형성하는지, 단백질이 어떻게 작동하고 진화하는지에 대한 기본 원리를 스스로 파악한다. 이러한 사전 학습된 지식 덕분에 PLM은 특정 단백질에 대한 이전 실험 데이터가 없어도 그 성능을 예측할 수 있는데, 이를 `zero-shot prediction` (제로샷 예측)이라고 부른다.
+
+PLM이 단백질을 '설계'하는 방식은 크게 두 가지 모듈로 나뉜다. &#x20;
+
+<figure><img src="Pasted image 20250820213355.png" alt=""><figcaption><p><strong>Fig. 2</strong>| Protein language model used for protein automatic evolution. (a) Module I for engineering proteins without identified mutation sites. (b) Module II for engineering proteins with previously identified mutation sites. (c) Module I and Module II used in combination or independently. Created in BioRender. Yu, H. (2025) https:// BioRender.com/g25x718.</p></figcaption></figure>
+
+*   Module I (돌연변이 위치를 알지 못할 때)
+
+>>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
     단백질을 개선하고자 하나, 특정 변이 부위에 대한 사전 정보가 전혀 없는 경우 PLM이 도움을 제공한다. PLM은 원래 단백질 서열의 각 아미노산을 개별적으로 '마스킹' (마치 빈칸 채우기처럼)하고, 다른 아미노산으로 대체했을 때 단백질 기능이 얼마나 향상될지 예측한다. 이때 PLM은 각 변형 단백질의 기능 개선 가능성을 점수로 매긴다. 가장 높은 점수를 받은 상위 96개의 변형 단백질을 선별하여 실제 실험을 위해 '설계'한다. 이러한 방식은 무작위 변이 도입보다 훨씬 효율적으로 우수한 변형 단백질을 탐색할 수 있게 한다. 실제로 UBC9와 유비퀴틴 단백질 실험에서, PLM의 일종인 ESM-2가 예측한 변이체들이 무작위로 선택된 변이체들보다 훨씬 더 높은 활성을 보였다.
 *   Module II (돌연변이 위치를 이미 알고 있을 때)
 
     이전 실험이나 다른 정보를 통해 단백질의 특정 위치 변이가 기능 개선에 유효하다는 것을 알고 있는 경우, PLM은 다른 방식으로 활용된다. PLM은 이미 알려진 돌연변이 위치에서 어떤 아미노산 조합이 가장 효과적일지 예측한다. 이때 PLM은 `Information Transport Complexity (ITC)` (정보 전달 복잡성)라는 특별한 측정 방법을 사용하여, 실험에 필요한 가장 '정보가 풍부한' (즉, 가장 유용하고 다양한) 변형 단백질들을 선택한다. 선택된 변이체들의 실험 데이터를 바탕으로 PLM은 `supervised machine learning model` (지도 머신러닝 모델)을 훈련시켜 단백질의 성능을 더욱 정확하게 예측할 수 있도록 한다. 예를 들면, GB1 단백질 데이터셋 실험에서, ESM-2 모델이 단일, 이중, 삼중 돌연변이의 성능을 예측하는 데 가장 높은 정확도를 보였다.
+<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
+
+    Module I은 '탐색' (알려지지 않은 새로운 돌연변이 부위 찾기)에 중점을 두는 반면, Module II는 '활 용' (알려진 부위 최적화)에 중점을 둔다. 이 두 모듈의 조합 사용은 시스템이 단백질 `fitness landscape` (적합도 환경)를 효과적으로 탐색할 수 있도록 하며, 이는 완전히 새로운 해결책을 찾는 것과 기존의 유망한 해결책을 개선하는 것 사이의 균형을 맞추기 위한 의도적인 전략을 반영한다. `fitness landscape`는 단백질 서열 공간에서 각 서열이 가지는 기능적 적합도를 지형처럼 시각화한 개념이다.
+=======
+>>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 
     Module I은 '탐색' (알려지지 않은 새로운 돌연변이 부위 찾기)에 중점을 두는 반면, Module II는 '활 용' (알려진 부위 최적화)에 중점을 둔다. 이 두 모듈의 조합 사용은 시스템이 단백질 `fitness landscape` (적합도 환경)를 효과적으로 탐색할 수 있도록 하며, 이는 완전히 새로운 해결책을 찾는 것과 기존의 유망한 해결책을 개선하는 것 사이의 균형을 맞추기 위한 의도적인 전략을 반영한다. `fitness landscape`는 단백질 서열 공간에서 각 서열이 가지는 기능적 적합도를 지형처럼 시각화한 개념이다.
 
-
+<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
+=======
+    &#x20;
+>>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 
     <figure><img src="Pasted image 20250820214357.png" alt=""><figcaption><p>Visualization of two dimensions of a NK fitness landscape, Wikipedia</p></figcaption></figure>
 
@@ -131,6 +175,10 @@ PLMeAE의 뛰어난 성능은 실제 실험 결과를 통해 입증되었다. �
 
 먼저, 연구진은 pCNF-RS 효소에서 기존 연구를 통해 중요하다고 알려진 4개의 아미노산 위치(H283, P284, M285, D286)를 집중적으로 개선하기 위해 PLMeAE의 `Module II`를 사용하였다.
 
+<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
+=======
+&#x20;
+>>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 
 <figure><img src="Pasted image 20250820215725.png" alt=""><figcaption><p><strong>Fig. 3</strong>| Protein language model used for engineering proteins with identified mutations. <br>(a) A scheme illustrating application of PLM for sampling informative mutants at one mutation site, assuming that four amino acids are selected. (b) A flow chart illustrating the process of PLMeAE Module II. FP, fitness predictor.</p></figcaption></figure>
 
