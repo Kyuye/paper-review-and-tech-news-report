@@ -15,7 +15,6 @@ description: Biofoundry paper review
 ### 1. 단백질 공학의 전통적 한계: 느림/비효율적
 
 단백질의 기능 개선을 위한 주요 전략 중 하나인 `directed evolution` (유도 진화)은 효과적인 방법으로 인정받아 왔다.
-<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
 
 ***
 
@@ -27,8 +26,6 @@ directed evolution (유도진화) 란.. 유도 진화는 과학자들이 특정 
 
 이 과정을 여러 번 반복하면, 원하는 특성이 점점 더 강해진 유기체를 얻을 수 있음..!
 
-=======
-
 ***
 
 directed evolution (유도진화) 란.. 유도 진화는 과학자들이 특정 목표를 달성하기 위해 유기체의 진화 과정을 인위적으로 조작하는 기술. 이 기술은 유전자 편집이나 돌연변이 유발 등을 통해 특정 형질을 가진 생명체를 빠르게 개발하는 데 사용됨. 자연적인 진화 (변이, 선택)가 수천 년에 걸쳐 무작위적으로 일어나는 것과 달리, 유도 진화는 짧은 시간 내에 원하는 결과를 얻도록 만듦. 여기에는 두가지 방법으로 진행.
@@ -39,7 +36,6 @@ directed evolution (유도진화) 란.. 유도 진화는 과학자들이 특정 
 
 이 과정을 여러 번 반복하면, 원하는 특성이 점점 더 강해진 유기체를 얻을 수 있음..!
 
->>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 ***
 
 그러나 이 방법은 몇 가지 본질적인 한계를 지닌다.
@@ -64,81 +60,50 @@ PLMeAE는 PLM이 단백질을 설계 하면, 바이오파운드리 로봇들이 
 
 PLMeAE는 `Design-Build-Test-Learn (DBTL)`이라는 특별한 주기를 반복하며 단백질을 진화시킨다. 이 주기는 마치 시험을 보고, 오답 노트를 통해 학습하여 다음 시험에서 더 나은 성과를 내는 과정과 유사하다.
 
-&#x20;
 
 <figure><img src="Pasted image 20250820213147.png" alt=""><figcaption><p>Fig. 1 | Overview of protein language model-enabled automatic protein evolution. In the Desing-Build-Test-Learn loop of protein engineering, PLMs are applied to facilitate the learning and design phases, while the build and test phases are executed by a biofoundry. Created in BioRender. Yu, H. (2024) https:// BioRender.com/f92a776.</p></figcaption></figure>
 
-
-
 *   1단계: Design (설계) – 지능적인 계획 수립
 
-    이 단계에서는 인공지능이 PLM이라는 단백질의 언어를 분석하여, 어떤 아미노산 서열이 단백질의 기 능을 최적으로 만들지 예측하고 계획한다. PLM은 `zero-shot prediction` (제로샷 예측)이라는 특별한 방법으로 새로운 단백질 변이체 후보들을 제안한다. `zero-shot prediction`은 모델이 이 전에 직접적으로 학습하지 않은 새로운 데이터에 대해서도 예측을 수행할 수 있는 능력을 의미한다. 단백질의 특정 변이 부위를 알지 못하는 경우에도, PLM은 가장 유망한 변이체들을 찾아내어 설계한 다.
+    이 단계에서는 인공지능이 PLM이라는 단백질의 언어를 분석하여, 어떤 아미노산 서열이 단백질의 기 능을 최적으로 만들지 예측하고 계획한다. PLM은 `zero-shot prediction` (제로샷 예측)이라는 특별한 방법으로 새로운 단백질 변이체 후보들을 제안한다. `zero-shot prediction`은 모델이 이 전에 직접적으로 학습하지 않은 새로운 데이터에 대해서도 예측을 수행할 수 있는 능력을 의미한다. 단백질의 특정 변이 부위를 알지 못하는 경우에도, PLM은 가장 유망한 변이체들을 찾아내어 설계한다.
+    
 *   2단계: Build (구축) – 로봇에 의한 실제 제작
 
-    설계 단계에서 PLM이 계획한 단백질 변이체들은 바이오파운드리라는 자동화된 로봇 실험실에서 실제로 제작된다. 이 과정은 매우 정교하고 신속하게 진행된다.
+	설계 단계에서 PLM이 계획한 단백질 변이체들은 바이오파운드리라는 자동화된 로봇 실험실에서 실제로 제작된다. 이 과정은 매우 정교하고 신속하게 진행된다.
+    
 *   3단계: Test (테스트) – 로봇에 의한 기능 평가
-
     제작된 단백질 변이체들이 실제로 얼마나 잘 작동하는지 바이오파운드리 로봇들이 자동으로 실험하고 평가한다. 예를 들어, 효소의 활성도를 측정하는 것이다. 이때 모든 실험 데이터가 체계적으로 수집된다.
+
 *   4단계: Learn (학습) – 인공지능의 지식 축적
-<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
+	  로봇들이 실험을 통해 얻은 데이터는 다시 PLM에 전달된다. PLM은 이 데이터를 분석하여 어떤 단백 질 변이체가 왜 더 우수했는지, 어떤 아미노산 변화가 기능 개선에 기여했는지 학습한다. 이 학습 을 통해 PLM은 다음 '설계' 단계에서 더욱 정확하고 효율적인 예측을 수행할 수 있게 된다. 로봇들이 실험을 통해 얻은 데이터는 다시 PLM에 전달된다. PLM은 이 데이터를 분석하여 어떤 단백 질 변이체가 왜 더 우수했는지, 어떤 아미노산 변화가 기능 개선에 기여했는지 학습한다. 이 학습 을 통해 PLM은 다음 '설계' 단계에서 더욱 정확하고 효율적인 예측을 수행할 수 있게 된다.
 
-    로봇들이 실험을 통해 얻은 데이터는 다시 PLM에 전달된다. PLM은 이 데이터를 분석하여 어떤 단백 질 변이체가 왜 더 우수했는지, 어떤 아미노산 변화가 기능 개선에 기여했는지 학습한다. 이 학습 을 통해 PLM은 다음 '설계' 단계에서 더욱 정확하고 효율적인 예측을 수행할 수 있게 된다.
 
-=======
-
-    로봇들이 실험을 통해 얻은 데이터는 다시 PLM에 전달된다. PLM은 이 데이터를 분석하여 어떤 단백 질 변이체가 왜 더 우수했는지, 어떤 아미노산 변화가 기능 개선에 기여했는지 학습한다. 이 학습 을 통해 PLM은 다음 '설계' 단계에서 더욱 정확하고 효율적인 예측을 수행할 수 있게 된다.
-
->>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 이 `DBTL cycle`은 지속적으로 반복된다. 마치 나선형 계단을 오르듯, 매번 더 나은 단백질을 찾아내고, 최종적으로 원하는 최적의 단백질을 개발할 때까지 이 과정이 이어진다. 이러한 반복적인 과정은 머신러닝의 `active learning` (능동 학습) 전략과 매우 유사하다. 이 전략에서는 모델이 정보 획득을 극대화하기 위해 다음에 어떤 실험을 수행할지 지능적으로 선택한다. 이는 무작위 또는 무차별적인 실험보다 훨씬 효율적인 접근 방식이다.
 
 ### 4. Protein Language Model (PLM)의 심층 분석
 
 PLMeAE의 가장 지능적인 부분은 바로 `Protein Language Model (PLM)`이다. PLM은 단백질의 언어를 이해하고 새로운 단백질을 '설계'하는 인공지능 핵심 두뇌라고 할 수 있다.
-<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
 
 ![출처: Figure 2 | The conceptual similarities and hierarchical structure as seen in natural languages and proteins, https://pipebio.com/blog/protein-language-models](<Pasted image 20250820212725.png>)
 
 
-
 PLM은 방대한 단백질 서열 데이터셋을 학습한다. 마치 인간이 수많은 책을 읽고 언어의 규칙을 깨우치는 것처럼, PLM은 다양한 단백질의 서열을 분석하며 어떤 아미노산 조합이 기능적인 단백질을 형성하는지, 단백질이 어떻게 작동하고 진화하는지에 대한 기본 원리를 스스로 파악한다. 이러한 사전 학습된 지식 덕분에 PLM은 특정 단백질에 대한 이전 실험 데이터가 없어도 그 성능을 예측할 수 있는데, 이를 `zero-shot prediction` (제로샷 예측)이라고 부른다.
 
-PLM이 단백질을 '설계'하는 방식은 크게 두 가지 모듈로 나뉜다. &#x20;
+PLM이 단백질을 '설계'하는 방식은 크게 두 가지 모듈로 나뉜다. 
 
 <figure><img src="Pasted image 20250820213355.png" alt=""><figcaption><p><strong>Fig. 2</strong>| Protein language model used for protein automatic evolution. (a) Module I for engineering proteins without identified mutation sites. (b) Module II for engineering proteins with previously identified mutation sites. (c) Module I and Module II used in combination or independently. Created in BioRender. Yu, H. (2025) https:// BioRender.com/g25x718.</p></figcaption></figure>
 
 *   Module I (돌연변이 위치를 알지 못할 때)
-
-=======
-
-![출처: Figure 2 | The conceptual similarities and hierarchical structure as seen in natural languages and proteins, https://pipebio.com/blog/protein-language-models](<Pasted image 20250820212725.png>)
-
-
-
-PLM은 방대한 단백질 서열 데이터셋을 학습한다. 마치 인간이 수많은 책을 읽고 언어의 규칙을 깨우치는 것처럼, PLM은 다양한 단백질의 서열을 분석하며 어떤 아미노산 조합이 기능적인 단백질을 형성하는지, 단백질이 어떻게 작동하고 진화하는지에 대한 기본 원리를 스스로 파악한다. 이러한 사전 학습된 지식 덕분에 PLM은 특정 단백질에 대한 이전 실험 데이터가 없어도 그 성능을 예측할 수 있는데, 이를 `zero-shot prediction` (제로샷 예측)이라고 부른다.
-
-PLM이 단백질을 '설계'하는 방식은 크게 두 가지 모듈로 나뉜다. &#x20;
-
-<figure><img src="Pasted image 20250820213355.png" alt=""><figcaption><p><strong>Fig. 2</strong>| Protein language model used for protein automatic evolution. (a) Module I for engineering proteins without identified mutation sites. (b) Module II for engineering proteins with previously identified mutation sites. (c) Module I and Module II used in combination or independently. Created in BioRender. Yu, H. (2025) https:// BioRender.com/g25x718.</p></figcaption></figure>
-
-*   Module I (돌연변이 위치를 알지 못할 때)
-
->>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
-    단백질을 개선하고자 하나, 특정 변이 부위에 대한 사전 정보가 전혀 없는 경우 PLM이 도움을 제공한다. PLM은 원래 단백질 서열의 각 아미노산을 개별적으로 '마스킹' (마치 빈칸 채우기처럼)하고, 다른 아미노산으로 대체했을 때 단백질 기능이 얼마나 향상될지 예측한다. 이때 PLM은 각 변형 단백질의 기능 개선 가능성을 점수로 매긴다. 가장 높은 점수를 받은 상위 96개의 변형 단백질을 선별하여 실제 실험을 위해 '설계'한다. 이러한 방식은 무작위 변이 도입보다 훨씬 효율적으로 우수한 변형 단백질을 탐색할 수 있게 한다. 실제로 UBC9와 유비퀴틴 단백질 실험에서, PLM의 일종인 ESM-2가 예측한 변이체들이 무작위로 선택된 변이체들보다 훨씬 더 높은 활성을 보였다.
+	
+	단백질을 개선하고자 하나, 특정 변이 부위에 대한 사전 정보가 전혀 없는 경우 PLM이 도움을 제공한다. PLM은 원래 단백질 서열의 각 아미노산을 개별적으로 '마스킹' (마치 빈칸 채우기처럼)하고, 다른 아미노산으로 대체했을 때 단백질 기능이 얼마나 향상될지 예측한다. 이때 PLM은 각 변형 단백질의 기능 개선 가능성을 점수로 매긴다. 가장 높은 점수를 받은 상위 96개의 변형 단백질을 선별하여 실제 실험을 위해 '설계'한다. 이러한 방식은 무작위 변이 도입보다 훨씬 효율적으로 우수한 변형 단백질을 탐색할 수 있게 한다. 실제로 UBC9와 유비퀴틴 단백질 실험에서, PLM의 일종인 ESM-2가 예측한 변이체들이 무작위로 선택된 변이체들보다 훨씬 더 높은 활성을 보였다.
+	
 *   Module II (돌연변이 위치를 이미 알고 있을 때)
 
     이전 실험이나 다른 정보를 통해 단백질의 특정 위치 변이가 기능 개선에 유효하다는 것을 알고 있는 경우, PLM은 다른 방식으로 활용된다. PLM은 이미 알려진 돌연변이 위치에서 어떤 아미노산 조합이 가장 효과적일지 예측한다. 이때 PLM은 `Information Transport Complexity (ITC)` (정보 전달 복잡성)라는 특별한 측정 방법을 사용하여, 실험에 필요한 가장 '정보가 풍부한' (즉, 가장 유용하고 다양한) 변형 단백질들을 선택한다. 선택된 변이체들의 실험 데이터를 바탕으로 PLM은 `supervised machine learning model` (지도 머신러닝 모델)을 훈련시켜 단백질의 성능을 더욱 정확하게 예측할 수 있도록 한다. 예를 들면, GB1 단백질 데이터셋 실험에서, ESM-2 모델이 단일, 이중, 삼중 돌연변이의 성능을 예측하는 데 가장 높은 정확도를 보였다.
-<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
 
-    Module I은 '탐색' (알려지지 않은 새로운 돌연변이 부위 찾기)에 중점을 두는 반면, Module II는 '활 용' (알려진 부위 최적화)에 중점을 둔다. 이 두 모듈의 조합 사용은 시스템이 단백질 `fitness landscape` (적합도 환경)를 효과적으로 탐색할 수 있도록 하며, 이는 완전히 새로운 해결책을 찾는 것과 기존의 유망한 해결책을 개선하는 것 사이의 균형을 맞추기 위한 의도적인 전략을 반영한다. `fitness landscape`는 단백질 서열 공간에서 각 서열이 가지는 기능적 적합도를 지형처럼 시각화한 개념이다.
-=======
->>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 
     Module I은 '탐색' (알려지지 않은 새로운 돌연변이 부위 찾기)에 중점을 두는 반면, Module II는 '활 용' (알려진 부위 최적화)에 중점을 둔다. 이 두 모듈의 조합 사용은 시스템이 단백질 `fitness landscape` (적합도 환경)를 효과적으로 탐색할 수 있도록 하며, 이는 완전히 새로운 해결책을 찾는 것과 기존의 유망한 해결책을 개선하는 것 사이의 균형을 맞추기 위한 의도적인 전략을 반영한다. `fitness landscape`는 단백질 서열 공간에서 각 서열이 가지는 기능적 적합도를 지형처럼 시각화한 개념이다.
 
-<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
-=======
-    &#x20;
->>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 
     <figure><img src="Pasted image 20250820214357.png" alt=""><figcaption><p>Visualization of two dimensions of a NK fitness landscape, Wikipedia</p></figcaption></figure>
 
@@ -150,18 +115,17 @@ PLMeAE의 또 다른 중요한 구성 요소는 `Automated Biofoundry`이다. �
 
 바이오파운드리는 액체를 정밀하게 옮기는 로봇 팔(`liquid handler`), 온도를 조절하는 기계(`thermocycler`), DNA를 분석하는 장비(`fragment analyzer`) 등 다양한 첨단 로봇 장비들로 구성된다. 이 모든 장비들은 로봇 팔과 지능형 소프트웨어에 의해 완벽하게 연결되어 작동한다. 바이오파운드리의 효율성은 수많은 실험을 동시에 처리하고(라운드당 96개 변이체), 노동 집약적인 단계를 자동화하는 능력에서 비롯된다. 이러한 병렬 처리와 인간 개입의 최소화가 핵심이다.
 
-&#x20;
-
 <figure><img src="Pasted image 20250820220110.png" alt=""><figcaption><p><strong>Fig. 4</strong> | Overview of automatic protein variants build and test.<br> (a) Workflow for protein variants build and test using biofoundry.</p></figcaption></figure>
 
 *   단백질 'Build (구축)' 단계의 자동화
-
+	
     PLM이 96개의 단백질 서열을 받으면, 컴퓨터 코드가(파이썬 프로그래밍)가 자동으로 DNA 조각(primer)을 설계하고 이를 합성 업체에 주문한다. 자동화된 로봇 워크스테이션(`Evo`)이 PCR(유전자 증폭) 반응에 필요한 재료들을 정확히 혼합하고, 플레이트 실러(`ALPS`)가 실험 접시를 밀봉한 다음, 자동 `thermocycler`가 정확한 온도로 유전자 증폭 반응을 진행한다. 로봇이 밀봉된 접시를 개봉하고(`Xpeel`), 음파를 이용한 `liquid handler` (`Echo`)로 불필요한 DNA를 제거한다. 그 다음, 로봇 워크스테이션(`Evo`)이 단백질을 만들 세포(대장균)에 제작된 DNA를 도입한다. 로봇 워크스테이션(`Fluent`)이 DNA를 도입한 세포들을 영양분이 있는 agar 플레이트에 도말하고, 라벨러(`Agilent Labeler`)가 플레이트에 태그를 부착한 다음, 인큐베이터에서 세포들이 잘 자라도록 배양한다.
-*   단백질 'Test (테스트)' 단계의 자동화
 
+
+*   단백질 'Test (테스트)' 단계의 자동화
+	
     다음 날, 로봇 colony picker (Fluent)가 agar 플레이트에서 자란 세포 덩어리(colony)들을 하나씩 집어서 액체 영양 배지에 옮겨주고, 인큐베이터에서 다시 잘 자라도록 배양한다. 로봇 원심분리기( `Rotanta`)가 세포 배양액을 수집하고, 시약 분배기(`Multidrop Combi`)가 새로운 배지로 교체해준 다음, 다시 인큐베이터에서 단백질을 발현시키도록 배양한다. 마지막으로, 자동 `microplate reader` (`CLARIOstar`)가 각 단백질 변이체의 효소 활성을 자동으로 측정하고, 컴퓨터 소프트웨어(`Momentum DataMiner`)가 데이터를 분석한다.
 
-&#x20;
 
 <figure><img src="Pasted image 20250820220318.png" alt=""><figcaption><p><strong>Fig. 4</strong> | Overview of automatic protein variants build and test. <br>(c) Multiple layers of exception handling and data quality control for failed experimental steps.</p></figcaption></figure>
 
@@ -175,23 +139,25 @@ PLMeAE의 뛰어난 성능은 실제 실험 결과를 통해 입증되었다. �
 
 먼저, 연구진은 pCNF-RS 효소에서 기존 연구를 통해 중요하다고 알려진 4개의 아미노산 위치(H283, P284, M285, D286)를 집중적으로 개선하기 위해 PLMeAE의 `Module II`를 사용하였다.
 
-<<<<<<< HEAD:biofoundry/Paper review_kr/PLMeAE (Protein Laguage Model-enabled Automatic Evolution).md
-=======
-&#x20;
->>>>>>> 3490bcc3625453bc02fbf9d7c635ce346022b79e:biofoundry/Kor_PLMeAE.md
 
 <figure><img src="Pasted image 20250820215725.png" alt=""><figcaption><p><strong>Fig. 3</strong>| Protein language model used for engineering proteins with identified mutations. <br>(a) A scheme illustrating application of PLM for sampling informative mutants at one mutation site, assuming that four amino acids are selected. (b) A flow chart illustrating the process of PLMeAE Module II. FP, fitness predictor.</p></figcaption></figure>
 
 
-
-* **1라운드 (Module II):** PLM(ESM-2)이 96개의 변이체 후보를 예측하였고, 바이오파운드리 로봇들이 이들을 제작하고 실험하였다. 그 결과, 가장 우수했던 변이체(M-R1)는 원래 효소보다 활성이 1.3배 향상되었다.
-* **2라운드 (Module II):** 1라운드 데이터를 학습한 PLM이 다시 96개의 변이체를 예측하였다. 이번에는 가장 우수했던 변이체(M-R2)가 원래 효소보다 활성이 2.0배 향상되었고, 원래 효소보다 활성이 높은 변이체의 수도 1라운드보다 훨씬 많아졌다.
-* **3라운드 (Module II):** 1, 2라운드 데이터를 바탕으로 PLM이 다시 96개의 변이체를 예측하였다. 이 변이체들은 더 다양한 아미노산 조합을 가졌으며, 활성이 높은 변이체의 비율도 62.5%로 더욱 증가하였다. 그러나 최고 활성 개선은 2.1배로, 2라운드와 큰 차이가 없었다. Module II의 세 번째 라운드에서 유의미한 개선이 나타나지 않았다는 관찰은 `diminishing returns` (수확 체감) 현상을 보여준다. 이는 더 이상 기존의 탐색 방식으로는 큰 개선을 이루기 어렵다는 신호다.
+* **1라운드 (Module II)**
+	PLM(ESM-2)이 96개의 변이체 후보를 예측하였고, 바이오파운드리 로봇들이 이들을 제작하고 실험하였다. 그 결과, 가장 우수했던 변이체(M-R1)는 원래 효소보다 활성이 1.3배 향상되었다.
+	
+* **2라운드 (Module II)** 
+	1라운드 데이터를 학습한 PLM이 다시 96개의 변이체를 예측하였다. 이번에는 가장 우수했던 변이체(M-R2)가 원래 효소보다 활성이 2.0배 향상되었고, 원래 효소보다 활성이 높은 변이체의 수도 1라운드보다 훨씬 많아졌다.
+	
+* **3라운드 (Module II)**  
+	1, 2라운드 데이터를 바탕으로 PLM이 다시 96개의 변이체를 예측하였다. 이 변이체들은 더 다양한 아미노산 조합을 가졌으며, 활성이 높은 변이체의 비율도 62.5%로 더욱 증가하였다. 그러나 최고 활성 개선은 2.1배로, 2라운드와 큰 차이가 없었다. Module II의 세 번째 라운드에서 유의미한 개선이 나타나지 않았다는 관찰은 `diminishing returns` (수확 체감) 현상을 보여준다. 이는 더 이상 기존의 탐색 방식으로는 큰 개선을 이루기 어렵다는 신호다.
 
 -> Diminishing returns (수확 체감): 생산 요소 투입량을 늘릴 때, 초기에는 생산량이 증가하지만 특정 시점부터는 증가량이 점점 줄어드는 현상을 의미
 
-* **4라운드 (Module I로 전환):** 3라운드에서 Module II만으로는 더 이상 큰 개선이 어렵다고 판단한 연구진은, PLMeAE의 `Module I`을 사용하여 새로운 돌연변이 위치를 탐색하기로 결정하였다. M-R3라는 3라운드의 최고 변이체를 바탕으로 PLM(ESM-2)이 96개의 새로운 단일 변이체를 예측하였는데, 놀랍게도 이 변이체들은 기존 3라운드에서 집중했던 위치가 아닌, 효소의 다른 여러 곳에서 발견되었다. 새로운 돌연변이 부위 탐색을 위해 Module I로 전략적으로 전환한 것은 플랫폼의 `adaptive intelligence` (적응형 지능)와 `local optima`를 극복하는 능력을 보여준다.
-* **최종 결과:** 4라운드에서 발견된 가장 우수했던 변이체(M-R4)는 원래 효소보다 활성이 무려 2.4배나 향상되었고, 1\~3라운드에서 발견했던 최고 변이체보다도 1.2배 더 우수하였다. 이 M-R4 효소 덕분에, ncAA가 통합된 sfGFP라는 단백질의 생산량은 원래 효소를 사용했을 때보다 12.1배나 더 많이 생성되었다. M-R4 효소는 여러 개의 `amber codon` (단백질 생산을 멈추는 신호)을 동시에 억제하는 효율도 높였고, 10가지 다른 종류의 ncAA를 단백질에 통합하는 효율도 개선하였다. 심지어 `transketolase (TK)`나 `nanobody` 같은 다른 중요한 단백질에도 ncAA 통합 효율을 높이는 데 성공하였다. pCNF-RS 효소 실험의 성공, 그리고 여러 `amber codon`, 다양한 ncAA, 심지어 다른 표적 단백질(TK, nanobody)에도 적용 가능하다는 점은 이 플랫폼이 특정 모델 시스템을 넘어 광범위하게 적용될 수 있음을 시사한다.
+* **4라운드 (Module I로 전환)** 
+	3라운드에서 Module II만으로는 더 이상 큰 개선이 어렵다고 판단한 연구진은, PLMeAE의 `Module I`을 사용하여 새로운 돌연변이 위치를 탐색하기로 결정하였다. M-R3라는 3라운드의 최고 변이체를 바탕으로 PLM(ESM-2)이 96개의 새로운 단일 변이체를 예측하였는데, 놀랍게도 이 변이체들은 기존 3라운드에서 집중했던 위치가 아닌, 효소의 다른 여러 곳에서 발견되었다. 새로운 돌연변이 부위 탐색을 위해 Module I로 전략적으로 전환한 것은 플랫폼의 `adaptive intelligence` (적응형 지능)와 `local optima`를 극복하는 능력을 보여준다.
+* **최종 결과** 
+	4라운드에서 발견된 가장 우수했던 변이체(M-R4)는 원래 효소보다 활성이 무려 2.4배나 향상되었고, 1\~3라운드에서 발견했던 최고 변이체보다도 1.2배 더 우수하였다. 이 M-R4 효소 덕분에, ncAA가 통합된 sfGFP라는 단백질의 생산량은 원래 효소를 사용했을 때보다 12.1배나 더 많이 생성되었다. M-R4 효소는 여러 개의 `amber codon` (단백질 생산을 멈추는 신호)을 동시에 억제하는 효율도 높였고, 10가지 다른 종류의 ncAA를 단백질에 통합하는 효율도 개선하였다. 심지어 `transketolase (TK)`나 `nanobody` 같은 다른 중요한 단백질에도 ncAA 통합 효율을 높이는 데 성공하였다. pCNF-RS 효소 실험의 성공, 그리고 여러 `amber codon`, 다양한 ncAA, 심지어 다른 표적 단백질(TK, nanobody)에도 적용 가능하다는 점은 이 플랫폼이 특정 모델 시스템을 넘어 광범위하게 적용될 수 있음을 시사한다.
 
 ### 7. PLMeAE의 혁신성: 기존 방법과의 비교
 
@@ -200,12 +166,14 @@ PLMeAE의 혁신성은 기존의 단백질 공학 방법들과 비교할 때 더
 *   속도와 시간 효율성
 
     PLMeAE는 단 10일 만에 4라운드의 단백질 진화를 완료하였다. 이 10일에는 `primer` (DNA 조각) 배송 시간이 포함되어 있으므로, 실제 로봇이 실험하는 시간은 훨씬 짧았다. 반면, 기존의 `positive/negative selection` (양성/음성 선택) 방식은 단 2라운드 진화에 무려 38일이나 소요되었다. 게다가 실험 과정에서 실패할 가능성도 많아 실제로는 더 오래 걸릴 수도 있었다. PLMeAE가 약 4배 가까이 빠르다는 것을 알 수 있다.
+    
 *   효율성과 성공률 (positive rate)
 
     PLMeAE는 2라운드에서 50%, 3라운드에서는 62.5%라는 매우 높은 positive rate (원하는 기능을 가진, 즉 활성이 향상된 단백질 변이체를 찾아내는 비율)를 보였다. 이는 PLM의 지능적인 예측 덕분이다. 반면, 무작위로 단백질을 변형하여 찾아내는 방법은 `positive rate`가 겨우 2.2%에 불과했다. 이는 100개 중 2개 정도만 성공한다는 의미이므로, PLMeAE가 얼마나 효율적인지 알 수 있다.
 *   탐색 방식의 차이
 
     PLM의 zero-shot prediction과 실험 데이터를 통한 '학습'을 통해, PLMeAE는 어떤 변이체가 가장 유망한지 정보 기반으로 지능적으로 설계하고 탐색한다. 따라서 기존 방법처럼 local optima에 갇히지 않고, 더 넓고 복잡한 단백질 sequence space (서열 공간)를 효율적으로 탐색할 수 있다. `sequence space`는 가능한 모든 단백질 서열의 집합을 의미한다. 전통적인 방법은 주로 무작위 돌연변이를 만들고 하나씩 실험해보는 `trial-and-error` (시행착오) 방식에 의존했다. 그래서 가장 좋은 단백질을 찾지 못하고 중간에 멈춰버리는 경우가 많았다.
+    
 *   자동화와 reproducibility (재현성)
 
     PLMeAE는 대부분의 실험 과정을 로봇이 자동으로 수행한다. 따라서 인간의 실수가 줄어들고, 실험 결과가 항상 일정하게 나오는 '높은 reproducibility'를 보장한다. 또한, 실험 과정에서 문제가 발생하면 로봇이 스스로 감지하고 다시 시도하는 data quality control (데이터 품질 관리) 시스템도 갖추고 있다. 전통적인 방법은 인간의 손이 많이 필요한 수동 작업이 많아 노동 집약적이며, 인간의 실수로 인해 실험 결과가 달라지거나 `reproducibility`가 떨어질 수 있었다.
