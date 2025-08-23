@@ -207,7 +207,7 @@ Department of French
 
 **1)** Lee, Chan Woo, Kyu Ye Song, Jihoon Jeong, and Woo Yong Choi. "Convolutional Attention Networks for Multimodal Emotion Recognition from Speech and Text Data." arXiv preprint arXiv:1805.06606 (2018).ACL(56th Annual Meeting of the Association for Computational Linguistics 2018)
 
-**2)**KyuyeSong,SekwangLee,SungbeomPyun,andLaehyunKim,“ComparativeStudyofTangibleTabletop and Computer-based Training Interfaces for Cognitive Rehabilitation,” HCII : 18th International Conference on Human-Computer Interaction, 2016 (oral presentation)
+**2)** KyuyeSong,SekwangLee,SungbeomPyun,andLaehyunKim,“ComparativeStudyofTangibleTabletop and Computer-based Training Interfaces for Cognitive Rehabilitation,” HCII : 18th International Conference on Human-Computer Interaction, 2016 (oral presentation)
 
 **3)**  KyuyeSong,GyuHyunKwon,SungbeomPyun,andLaehyunKim,“DesignissuesofTangibleTabletop System as a Cognitive Rehabilitation for Stroke Patients,” International BioMedical Engineering Conference 2015 (IBEC 2015) (oral presentation)
 
