@@ -77,6 +77,7 @@ This `DBTL cycle` repeats continuously. Like climbing a spiral staircase, it fin
 
 The most intelligent part of PLMeAE is the `Protein Language Model (PLM)`. The PLM is the core AI brain that understands the language of proteins and "designs" new ones.
 ![](/resources/28666d3c41c2aa8f3066b97c94bef47a.png)
+
 <sup>Resources: The conceptual similarities and hierarchical structure as seen in natural languages and proteins, https://pipebio.com/blog/protein-language-models</sup>
 
 The PLM is trained on vast datasets of protein sequences. Just as a human learns the rules of a language by reading countless books, the PLM analyzes diverse protein sequences to figure out on its own which amino acid combinations form functional proteins and the fundamental principles of how proteins work and evolve. Thanks to this pre-trained knowledge, the PLM can predict the performance of a specific protein even without prior experimental data, a capability known as `zero-shot prediction`.
@@ -84,6 +85,7 @@ The PLM is trained on vast datasets of protein sequences. Just as a human learns
 The way the PLM "designs" proteins is divided into two main modules.
 
 ![](/resources/b10aceb11c6d64983d7e1e8009ec5676.png)
+
 <sup>Protein language model used for protein automatic evolution. (a) Module I for engineering proteins without identified mutation sites. (b) Module II for engineering proteins with previously identified mutation sites. (c) Module I and Module II used in combination or independently. Created in BioRender. Yu, H. (2025)</sup>
 
 
@@ -110,6 +112,7 @@ The biofoundry is equipped with a variety of advanced robotic instruments, such 
 
 
 ![](/resources/a73308b756d06bc539412f6cfa32deb8.png)
+
 <sup>Overview of automatic protein variants build and test. (a) Workflow for protein variants build and test using biofoundry.</sup>
 
 - Automation of the Protein 'Build' Step
@@ -123,6 +126,7 @@ The biofoundry is equipped with a variety of advanced robotic instruments, such 
 
 
 ![](/resources/16b6c69b385169da88f2abdd39748506.png)
+
 <sup>Overview of automatic protein variants build and test. <br>(c) Multiple layers of exception handling and data quality control for failed experimental steps.</sup>
 
 
@@ -137,6 +141,7 @@ The outstanding performance of PLMeAE was proven through actual experimental res
 First, the researchers used PLMeAE's `Module II` to focus on improving four amino acid positions (H283, P284, M285, D286) in the pCNF-RS enzyme that were known from previous studies to be important.
 
 ![](/resources/f8afa20cd108d17b1be7fbe073e3eee7.png)
+
 <sup>Protein language model used for engineering proteins with identified mutations. (a) A scheme illustrating application of PLM for sampling informative mutants at one mutation site, assuming that four amino acids are selected. (b) A flow chart illustrating the process of PLMeAE Module II. FP, fitness predictor.</sup>
 
 - **Round 1 (Module II):** The PLM (ESM-2) predicted 96 variant candidates, which the biofoundry robots built and tested. The best variant (M-R1) showed a 1.3-fold improvement in activity compared to the original enzyme.
