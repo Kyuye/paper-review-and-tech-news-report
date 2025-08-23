@@ -99,6 +99,7 @@ The way the PLM "designs" proteins is divided into two main modules.
 Module I focuses on **'exploration'** (finding new, unknown mutation sites), while Module II focuses on **'exploitation'** (optimizing known sites). Using these two modules in combination allows the system to effectively navigate the protein `fitness landscape`, reflecting a deliberate strategy to balance finding entirely new solutions with improving existing promising ones. The `fitness landscape` is a concept that visualizes the functional fitness of each sequence in the protein sequence space as a topographical map.
 
 ![](/resources/e15c92f5f07242d270d3cdb8057f8722.png)
+
 <sup>Visualization of two dimensions of a NK fitness landscape, Wikipedia</sup>
 
 ### 5. The Hands and Feet of PLMeAE: The Role of the Automated Biofoundry

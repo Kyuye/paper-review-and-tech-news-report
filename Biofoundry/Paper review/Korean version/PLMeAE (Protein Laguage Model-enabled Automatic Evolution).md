@@ -105,6 +105,7 @@ PLM이 단백질을 '설계'하는 방식은 크게 두 가지 모듈로 나뉜�
 
 
 ![](/resources/e15c92f5f07242d270d3cdb8057f8722.png)
+
 <sup>Visualization of two dimensions of a NK fitness landscape, Wikipedia</sup>
 
 
