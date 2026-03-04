@@ -1,3 +1,6 @@
 My files/
 .obsidian/
 SUMMARY.md
+__pycache__/
+.pytest_cache/
+.venv/

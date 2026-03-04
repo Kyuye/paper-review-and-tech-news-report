@@ -1,0 +1,109 @@
+# 8-field taxonomy for synthetic biology content classification.
+# Keywords are used for lightweight rule-based tagging before LLM polishing.
+
+topics:
+  - slug: biomanufacturing
+    ko: "바이오제조/스케일업"
+    en: "Biomanufacturing & Scale-up"
+    priority: 100
+    keywords:
+      - fermentation
+      - biomanufacturing
+      - scale-up
+      - bioreactor
+      - downstream
+      - titer
+      - yield
+      - gmp
+      - pilot plant
+
+  - slug: genome_engineering
+    ko: "유전체공학·DNA합성"
+    en: "Genome Engineering & DNA Synthesis"
+    priority: 95
+    keywords:
+      - crispr
+      - cas9
+      - base editor
+      - prime editing
+      - genome
+      - dna synthesis
+      - gene editing
+      - recombineering
+
+  - slug: protein_enzyme
+    ko: "단백질·효소공학"
+    en: "Protein/Enzyme Engineering"
+    priority: 90
+    keywords:
+      - enzyme
+      - directed evolution
+      - protein engineering
+      - protein design
+      - biocatalyst
+      - thermostability
+
+  - slug: gene_circuits_sensors
+    ko: "유전자회로·바이오센서"
+    en: "Gene Circuits & Biosensors"
+    priority: 88
+    keywords:
+      - gene circuit
+      - biosensor
+      - reporter
+      - transcriptional
+      - riboswitch
+      - synthetic promoter
+      - toehold
+
+  - slug: therapeutics
+    ko: "치료·트랜슬레이셔널"
+    en: "Therapeutics & Translational SynBio"
+    priority: 86
+    keywords:
+      - cell therapy
+      - gene therapy
+      - car-t
+      - in vivo
+      - delivery
+      - vector
+      - microbiome
+
+  - slug: biofoundry_ai
+    ko: "바이오파운드리·자동화·AI"
+    en: "Biofoundry/Automation & AI"
+    priority: 84
+    keywords:
+      - biofoundry
+      - automation
+      - lab robotics
+      - dbtl
+      - active learning
+      - machine learning
+      - protein language model
+
+  - slug: policy_safety
+    ko: "정책·규제·바이오안전(고수준)"
+    en: "Policy/Regulation/Biosecurity (high-level)"
+    priority: 82
+    keywords:
+      - regulation
+      - policy
+      - biosafety
+      - biosecurity
+      - guideline
+      - screening
+
+  - slug: business
+    ko: "비즈니스(투자/파트너십/M&A/시설)"
+    en: "Business (Funding/Partnerships/M&A/Facilities)"
+    priority: 80
+    keywords:
+      - funding
+      - series a
+      - partnership
+      - acquisition
+      - merger
+      - facility
+      - expansion
+

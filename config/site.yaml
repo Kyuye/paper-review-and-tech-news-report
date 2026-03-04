@@ -1,0 +1,20 @@
+gitbook:
+  base_url: "https://kyu-ye-song.gitbook.io/kyu-ye-song"
+  timezone: "Asia/Seoul"
+
+drafts:
+  # Lookback window for news collection (days).
+  news_lookback_days: 3
+  # Max items to include per topic section (1-2 recommended).
+  news_per_topic_max: 2
+
+  # Paper review selection behavior.
+  paper_lookback_days: 14
+  paper_deep_review_count: 1
+  paper_recommend_count: 3
+
+linkedin:
+  # Which language(s) to post on merge.
+  # Supported: ["ko"], ["en"], ["ko","en"].
+  post_langs: ["ko"]
+

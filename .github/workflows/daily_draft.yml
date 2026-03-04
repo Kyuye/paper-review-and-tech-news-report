@@ -1,0 +1,95 @@
+name: Daily GitBook Draft (KST 18:00, weekdays)
+
+on:
+  schedule:
+    # 18:00 Asia/Seoul == 09:00 UTC
+    - cron: "0 9 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      run_datetime_override:
+        description: "ISO datetime override (e.g. 2026-03-05T18:00:00+09:00)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate draft content
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          RUN_DATETIME_OVERRIDE: ${{ github.event.inputs.run_datetime_override }}
+        run: |
+          python -m tools.publisher.run_draft
+
+      - name: Detect no-op
+        id: noop
+        run: |
+          if [ ! -f previews/draft_meta.json ]; then
+            echo "no_draft=true" >> "$GITHUB_OUTPUT"
+            echo "No draft generated for this run (likely non-scheduled day)."
+            exit 0
+          fi
+          echo "no_draft=false" >> "$GITHUB_OUTPUT"
+
+      - name: Read PR metadata
+        id: meta
+        if: ${{ steps.noop.outputs.no_draft == 'false' }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          meta = json.loads(pathlib.Path("previews/draft_meta.json").read_text(encoding="utf-8"))
+          ctx = meta.get("ctx") or {}
+          date_str = ctx.get("date_str", "unknown")
+          kind = ctx.get("kind", "unknown")
+          title = pathlib.Path("previews/pr/latest_title.txt").read_text(encoding="utf-8").strip()
+          body = pathlib.Path("previews/pr/latest_body.md").read_text(encoding="utf-8").strip()
+          out = os.environ["GITHUB_OUTPUT"]
+          with open(out, "a", encoding="utf-8") as f:
+              f.write(f"date={date_str}\n")
+              f.write(f"kind={kind}\n")
+              f.write("title<<EOF\n" + title + "\nEOF\n")
+              f.write("body<<EOF\n" + body + "\nEOF\n")
+          PY
+
+      - name: Create/Update PR
+        id: cpr
+        if: ${{ steps.noop.outputs.no_draft == 'false' }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: draft ${{ steps.meta.outputs.date }} (${{ steps.meta.outputs.kind }})"
+          branch: "draft/${{ steps.meta.outputs.date }}-${{ steps.meta.outputs.kind }}"
+          delete-branch: true
+          title: "${{ steps.meta.outputs.title }}"
+          body: "${{ steps.meta.outputs.body }}"
+          labels: "draft,auto"
+
+      - name: Email preview (PR link)
+        if: ${{ steps.cpr.outputs.pull-request-url != '' && steps.noop.outputs.no_draft == 'false' }}
+        env:
+          PULL_REQUEST_URL: ${{ steps.cpr.outputs.pull-request-url }}
+          EMAIL_SUBJECT: "[Draft] GitBook 업데이트 미리보기 (${{ steps.meta.outputs.date }})"
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python -m tools.publisher.send_preview_email

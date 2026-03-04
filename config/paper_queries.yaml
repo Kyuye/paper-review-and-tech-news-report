@@ -1,0 +1,13 @@
+# Paper search queries used for Tue/Thu paper-review drafts.
+# Keep queries broad; the selection stage will pick top items for deep review.
+
+queries:
+  - name: "Synthetic biology (general)"
+    query: "\"synthetic biology\" OR biofoundry OR \"cell-free\" OR \"gene circuit\""
+
+  - name: "Biomanufacturing"
+    query: "biomanufacturing OR fermentation OR \"metabolic engineering\""
+
+  - name: "Genome engineering"
+    query: "CRISPR OR \"base editor\" OR \"prime editing\" OR \"genome writing\""
+
