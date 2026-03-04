@@ -13,9 +13,11 @@ from .index_update import update_indexes
 from .news_collect import collect_news
 from .paper_collect import collect_papers
 from .settings import load_paper_queries, load_site_config, load_sources, load_topics, repo_root
+from .slugutil import slugify
 from .svg_templates import render_svg
 from .timeutil import draft_context, now_in_timezone
 from .topics import classify_text
+from .mdutil import ensure_contains, ensure_frontmatter
 
 
 def _write(path: Path, text: str) -> None:
@@ -116,8 +118,21 @@ def main() -> int:
 
         ko_rel = f"ko/trends/{ctx.date_str}.md"
         en_rel = f"en/trends/{ctx.date_str}.md"
-        _write(root / ko_rel, llm.ko_markdown.replace("{GITBOOK_URL}", f"{cfg.gitbook_base_url}/ko/trends/{ctx.date_str}"))
-        _write(root / en_rel, llm.en_markdown.replace("{GITBOOK_URL}", f"{cfg.gitbook_base_url}/en/trends/{ctx.date_str}"))
+        ko_url = f"{cfg.gitbook_base_url}/{ko_rel.replace('.md','')}"
+        en_url = f"{cfg.gitbook_base_url}/{en_rel.replace('.md','')}"
+        active_topics = sorted(set(capped.keys()))
+        ko_md = llm.ko_markdown.replace("{GITBOOK_URL}", ko_url)
+        en_md = llm.en_markdown.replace("{GITBOOK_URL}", en_url)
+        ko_md = ensure_frontmatter(
+            ko_md,
+            required={"date": ctx.date_str, "kind": "trends", "title": f"동향·소식 ({ctx.date_str})", "topics": active_topics, "gitbook_url": ko_rel},
+        )
+        en_md = ensure_frontmatter(
+            en_md,
+            required={"date": ctx.date_str, "kind": "trends", "title": f"Trends & News ({ctx.date_str})", "topics": active_topics, "gitbook_url": en_rel},
+        )
+        _write(root / ko_rel, ko_md)
+        _write(root / en_rel, en_md)
 
         linkedin_ko_rel = f"previews/linkedin/{ctx.date_str}_ko.txt"
         linkedin_en_rel = f"previews/linkedin/{ctx.date_str}_en.txt"
@@ -180,7 +195,7 @@ def main() -> int:
         gitbook_base_url=cfg.gitbook_base_url,
     )
 
-    slug = llm.slug or "paper"
+    slug = slugify(llm.slug or deep.title or "paper", fallback="paper")
     img_rel = f"assets/images/{ctx.date_str}/{slug}.svg"
     svg = render_svg(
         llm.svg_template,
@@ -196,6 +211,29 @@ def main() -> int:
     en_md = llm.en_markdown.replace("{DATE}", ctx.date_str).replace("{SLUG}", slug)
     ko_md = ko_md.replace("{GITBOOK_URL}", f"{cfg.gitbook_base_url}/{ko_rel.replace('.md','')}")
     en_md = en_md.replace("{GITBOOK_URL}", f"{cfg.gitbook_base_url}/{en_rel.replace('.md','')}")
+    ko_md = ensure_frontmatter(
+        ko_md,
+        required={
+            "date": ctx.date_str,
+            "kind": "paper_review",
+            "title": f"논문리뷰: {deep.title[:80]}",
+            "doi": deep.doi,
+            "gitbook_url": ko_rel,
+        },
+    )
+    en_md = ensure_frontmatter(
+        en_md,
+        required={
+            "date": ctx.date_str,
+            "kind": "paper_review",
+            "title": f"Paper review: {deep.title[:80]}",
+            "doi": deep.doi,
+            "gitbook_url": en_rel,
+        },
+    )
+    image_snippet = f"![diagram]({img_rel})"
+    ko_md = ensure_contains(ko_md, image_snippet, after_heading="FIRST_H1")
+    en_md = ensure_contains(en_md, image_snippet, after_heading="FIRST_H1")
     _write(root / ko_rel, ko_md)
     _write(root / en_rel, en_md)
 
