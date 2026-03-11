@@ -5,7 +5,7 @@ This directory contains the automation scripts used by GitHub Actions to:
 1) Generate GitBook-ready Markdown pages (KO + EN)
 2) Generate an explanatory SVG for Tue/Thu paper reviews
 3) Create a draft PR (preview)
-4) Email a preview (PR link + LinkedIn draft text)
+4) Send a preview notification (Discord webhook)
 5) After PR merge, post to LinkedIn via LinkedIn API
 
 ## Workflows
@@ -13,7 +13,7 @@ This directory contains the automation scripts used by GitHub Actions to:
 - `/.github/workflows/daily_draft.yml`
   - Runs **weekdays 18:00 Asia/Seoul (09:00 UTC)**
   - Generates content and opens/updates a PR on `draft/YYYY-MM-DD-kind`
-  - Sends preview email with the PR link
+  - Sends Discord notification with the PR link
 - `/.github/workflows/on_merge_linkedin.yml`
   - Runs when a PR is merged into `main`
   - Posts LinkedIn text from `previews/linkedin/YYYY-MM-DD_ko.txt` (default) using markers embedded in PR body
@@ -26,13 +26,8 @@ This directory contains the automation scripts used by GitHub Actions to:
 - `OPENAI_MODEL` (example: `gpt-4.1-mini`)
 - (optional) `OPENAI_BASE_URL` (default: `https://api.openai.com/v1`)
 
-### Email (SMTP)
-- `SMTP_HOST`
-- `SMTP_PORT`
-- `SMTP_USER`
-- `SMTP_PASS`
-- `EMAIL_FROM`
-- `EMAIL_TO`
+### Discord (preview notifications)
+- `DISCORD_WEBHOOK_URL` (Discord channel webhook URL)
 
 ### LinkedIn (personal account)
 - `LINKEDIN_ACCESS_TOKEN`
@@ -70,3 +65,11 @@ Preview outputs are written under:
 - Paper reviews are abstract/metadata-only.
 - No paywalled content is copied.
 - The SVG is author-generated (not reused from the paper).
+
+## Discord webhook setup
+
+1) Discord channel → Edit Channel → Integrations → Webhooks
+2) Create webhook → Copy webhook URL
+3) GitHub repo → Settings → Secrets and variables → Actions → New repository secret
+   - Name: `DISCORD_WEBHOOK_URL`
+   - Secret: (the webhook URL)

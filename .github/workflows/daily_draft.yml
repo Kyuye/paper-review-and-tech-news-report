@@ -84,16 +84,10 @@ jobs:
           body: "${{ steps.meta.outputs.body }}"
           labels: "draft,auto"
 
-      - name: Email preview (PR link)
+      - name: Discord notify (PR link)
         if: ${{ steps.cpr.outputs.pull-request-url != '' && steps.noop.outputs.no_draft == 'false' }}
         env:
           PULL_REQUEST_URL: ${{ steps.cpr.outputs.pull-request-url }}
-          EMAIL_SUBJECT: "[Draft] GitBook 업데이트 미리보기 (${{ steps.meta.outputs.date }})"
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
-          python -m tools.publisher.send_preview_email
+          python -m tools.publisher.send_preview_discord
