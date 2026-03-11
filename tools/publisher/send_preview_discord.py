@@ -18,12 +18,12 @@ def main() -> int:
         raise RuntimeError("Missing PULL_REQUEST_URL")
 
     root = repo_root()
-    preview_path = root / "previews" / "email" / "latest.md"
+    preview_path = root / "previews" / "notifications" / "latest.md"
     if preview_path.exists():
         body = preview_path.read_text(encoding="utf-8")
         text = body.replace("{PULL_REQUEST_URL}", pr_url).strip() + "\n"
     else:
-        text = f"GitBook draft PR created:\n{pr_url}\n"
+        text = f"GitBook candidate pack PR created:\n{pr_url}\n"
 
     res = send_discord(webhook_url=webhook_url, text=text)
     if not res.ok:
@@ -35,4 +35,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
