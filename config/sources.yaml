@@ -1,0 +1,36 @@
+# RSS/Atom sources for trends/news collection.
+# Add or replace these with sources you trust (official newsroom/blog feeds preferred).
+#
+# Fields:
+# - name: short display name
+# - feed_url: RSS/Atom URL
+# - entity_type: company|university|institute|media|events
+# - default_topics: optional list of topic slugs from config/topics.yaml
+
+sources:
+  - name: "SynBioBeta"
+    feed_url: "https://synbiobeta.com/feed/"
+    entity_type: "media"
+    default_topics: ["business", "biomanufacturing", "biofoundry_ai"]
+
+  - name: "bioRxiv (Synthetic Biology search)"
+    # NOTE: Not all sources provide RSS. Replace with a stable feed if needed.
+    feed_url: "https://connect.biorxiv.org/relate/feed/181"
+    entity_type: "media"
+    default_topics: ["gene_circuits_sensors", "genome_engineering", "protein_enzyme"]
+
+  - name: "Nature News"
+    feed_url: "https://www.nature.com/nature.rss"
+    entity_type: "media"
+    default_topics: ["policy_safety", "business"]
+
+  - name: "MIT News"
+    feed_url: "https://news.mit.edu/rss/topic/biology"
+    entity_type: "university"
+    default_topics: ["genome_engineering", "gene_circuits_sensors", "protein_enzyme"]
+
+  - name: "Stanford Bioengineering"
+    feed_url: "https://bioengineering.stanford.edu/rss.xml"
+    entity_type: "university"
+    default_topics: ["gene_circuits_sensors", "biofoundry_ai"]
+

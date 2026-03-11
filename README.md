@@ -7,6 +7,18 @@ In the future, I want to contribute by building a biofoundry platform for next-g
 The repo is for 
 Reviewing papers &amp; News report: synthetic biology, optogenetics, biofoundry, startup, VC
 
+## Automation (GitBook + LinkedIn)
+
+This repo is connected to GitBook via Git Sync. A GitHub Actions workflow generates drafts and opens a PR:
+
+- Mon/Wed/Fri 18:00 KST: Trends & News (KO+EN)
+- Tue/Thu 18:00 KST: Paper Review (KO+EN) + explanatory SVG
+- Publish flow: **PR is the preview** → merge the PR to publish on GitBook
+- LinkedIn: posts via LinkedIn API **only after merge**
+
+Setup:
+- See `tools/publisher/README.md`
+
 
 ## Who am I?
 
@@ -28,5 +40,4 @@ https://www.linkedin.com/in/kyu-ye-song/
 - Entrepreneurial background: Founded four tech startups, developing a practical applications.
 - Leadership experience: Demonstrated strong leadership skills as a company CEO, vice president in student council, science and engineering committee member, and international student representative.
 - Bioinformatics knowledge: Gaining a fundamental understanding of NGS-related data and Single cell analysis
-
 
