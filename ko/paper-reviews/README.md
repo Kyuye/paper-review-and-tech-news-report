@@ -1,8 +1,9 @@
 ---
-title: "논문리뷰"
+title: 논문리뷰
 ---
 
 # 논문리뷰
 
-자동 생성되는 논문리뷰(화/목) 모음입니다. (초록/메타데이터 기반, 설명용 SVG 포함)
+## Latest
 
+- [2026-03-19] [논문리뷰 (2026-03-19)](ko/paper-reviews/2026-03-19-the-lldd-lactate-dehydrogenase-is-a-determinant-of-lactic-acid-tolerance-in-pichia-kudriavzevii-by-pyruvate-metabolism-pathway.md)
