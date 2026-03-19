@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from urllib.error import HTTPError, URLError
 
 from .discord_notify import send_discord
 from .settings import repo_root
@@ -25,7 +26,19 @@ def main() -> int:
     else:
         text = f"GitBook candidate pack PR created:\n{pr_url}\n"
 
-    res = send_discord(webhook_url=webhook_url, text=text)
+    try:
+        res = send_discord(webhook_url=webhook_url, text=text)
+    except HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")
+        print(f"Discord notify failed (non-fatal): HTTP {exc.code} {detail}".strip())
+        return 0
+    except URLError as exc:
+        print(f"Discord notify failed (non-fatal): {exc}")
+        return 0
+    except Exception as exc:
+        print(f"Discord notify failed (non-fatal): {exc}")
+        return 0
+
     if not res.ok:
         # Don't fail the workflow for notification issues.
         print(f"Discord notify failed (non-fatal): {res.response_text}")
