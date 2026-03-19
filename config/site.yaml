@@ -12,9 +12,3 @@ drafts:
   paper_lookback_days: 14
   paper_deep_review_count: 1
   paper_recommend_count: 3
-
-linkedin:
-  # Which language(s) to post on merge.
-  # Supported: ["ko"], ["en"], ["ko","en"].
-  post_langs: ["ko"]
-

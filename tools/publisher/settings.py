@@ -47,7 +47,6 @@ class SiteConfig:
     paper_lookback_days: int
     paper_deep_review_count: int
     paper_recommend_count: int
-    linkedin_post_langs: tuple[str, ...]
 
 
 def load_site_config() -> SiteConfig:
@@ -55,7 +54,6 @@ def load_site_config() -> SiteConfig:
     raw = load_yaml(root / "config" / "site.yaml")
     gitbook = raw.get("gitbook") or {}
     drafts = raw.get("drafts") or {}
-    linkedin = raw.get("linkedin") or {}
     return SiteConfig(
         gitbook_base_url=str(gitbook.get("base_url") or "").rstrip("/"),
         timezone=str(gitbook.get("timezone") or "Asia/Seoul"),
@@ -64,7 +62,6 @@ def load_site_config() -> SiteConfig:
         paper_lookback_days=int(drafts.get("paper_lookback_days") or 14),
         paper_deep_review_count=int(drafts.get("paper_deep_review_count") or 1),
         paper_recommend_count=int(drafts.get("paper_recommend_count") or 3),
-        linkedin_post_langs=tuple(linkedin.get("post_langs") or ["ko"]),
     )
 
 

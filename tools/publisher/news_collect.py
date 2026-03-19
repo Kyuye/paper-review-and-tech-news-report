@@ -22,6 +22,7 @@ class NewsItem:
     source_name: str
     entity_type: str
     summary: str
+    default_topics: tuple[str, ...]
 
 
 def _fetch(url: str, timeout: int = 20) -> str:
@@ -69,6 +70,7 @@ def collect_news(
                     source_name=src.name,
                     entity_type=src.entity_type,
                     summary=e.summary.strip(),
+                    default_topics=src.default_topics,
                 )
             )
 
@@ -79,4 +81,3 @@ def collect_news(
     out = list(dedup.values())
     out.sort(key=lambda x: (x.published_at.isoformat(), x.source_name, x.title), reverse=True)
     return out, errors
-
