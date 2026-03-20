@@ -11,7 +11,7 @@ from .content_manual import build_paper_review_pack, build_trends_pack
 from .index_update import update_indexes
 from .news_collect import NewsItem, collect_news
 from .paper_collect import Paper, collect_papers
-from .settings import load_paper_queries, load_site_config, load_sources, load_topics, repo_root
+from .settings import load_paper_search_config, load_site_config, load_sources, load_topics, repo_root
 from .slugutil import slugify
 from .template_manual import build_paper_review_template, build_trends_template
 from .timeutil import draft_context, now_in_timezone
@@ -215,8 +215,8 @@ def main() -> int:
         _latest_copy(root / notification_rel, notifications_dir / "latest.md")
         return 0
 
-    queries = load_paper_queries()
-    papers = collect_papers(queries=queries, lookback_days=cfg.paper_lookback_days)
+    paper_config = load_paper_search_config()
+    papers = collect_papers(config=paper_config, lookback_days=cfg.paper_lookback_days)
     main_paper = papers[0] if papers else None
     recommended = papers[1 : 1 + cfg.paper_recommend_count] if len(papers) > 1 else []
 

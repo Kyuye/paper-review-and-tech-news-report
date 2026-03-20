@@ -10,7 +10,7 @@ from unittest.mock import patch
 from tools.publisher.news_collect import NewsItem
 from tools.publisher.paper_collect import Paper
 from tools.publisher.run_draft import main as run_draft_main
-from tools.publisher.settings import SiteConfig, Topic
+from tools.publisher.settings import PaperJournal, PaperSearchConfig, SiteConfig, Topic
 
 
 def _site_config() -> SiteConfig:
@@ -42,6 +42,15 @@ def _topics() -> list[Topic]:
             keywords=("biofoundry", "automation"),
         ),
     ]
+
+
+def _paper_search_config() -> PaperSearchConfig:
+    return PaperSearchConfig(
+        journals=(PaperJournal(name="Nature Biotechnology", group="nature"),),
+        search_queries=("synthetic biology neuron",),
+        synbio_keywords=("synthetic biology", "gene circuit"),
+        neural_keywords=("neuron", "neural circuit"),
+    )
 
 
 class TestManualWorkflow(unittest.TestCase):
@@ -82,10 +91,11 @@ class TestManualWorkflow(unittest.TestCase):
                     doi="10.1000/example",
                     url="https://doi.org/10.1000/example",
                     published_date="2026-03-12",
-                    venue="Example Journal",
+                    venue="Nature Biotechnology",
                     year="2026",
                     authors="A. Author",
-                    source="europepmc",
+                    source="nature",
+                    match_reason="Matched neural keywords: neuron; matched synbio keywords: synthetic biology.",
                 ),
                 Paper(
                     title="Recommended paper",
@@ -93,16 +103,17 @@ class TestManualWorkflow(unittest.TestCase):
                     doi="10.1000/rec",
                     url="https://doi.org/10.1000/rec",
                     published_date="2026-03-11",
-                    venue="Example Journal",
+                    venue="Cell",
                     year="2026",
                     authors="B. Author",
-                    source="europepmc",
+                    source="cell",
+                    match_reason="Matched neural keywords: neural circuit; matched synbio keywords: gene circuit.",
                 ),
             ]
             with patch("tools.publisher.run_draft.repo_root", return_value=root), \
                 patch("tools.publisher.run_draft.load_site_config", return_value=_site_config()), \
                 patch("tools.publisher.run_draft.load_topics", return_value=_topics()), \
-                patch("tools.publisher.run_draft.load_paper_queries", return_value=[{"name": "x", "query": "x"}]), \
+                patch("tools.publisher.run_draft.load_paper_search_config", return_value=_paper_search_config()), \
                 patch("tools.publisher.run_draft.collect_papers", return_value=papers), \
                 patch("tools.publisher.run_draft.update_indexes", side_effect=lambda *_: None), \
                 patch.dict(os.environ, {"RUN_DATETIME_OVERRIDE": "2026-03-12T18:00:00+09:00"}, clear=False):

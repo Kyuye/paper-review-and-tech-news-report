@@ -108,7 +108,7 @@ def build_paper_review_pack(
         "## Korean prompt",
         "```text",
         "역할: 너는 합성생물학 논문 리뷰 에디터다.",
-        f"목표: 아래 메인 논문과 추천 논문을 바탕으로 {date_str} 논문리뷰 글을 한국어로 작성해라.",
+        f"목표: 아래 메인 논문과 추천 논문을 바탕으로 {date_str} neural circuit synthetic biology 논문리뷰 글을 한국어로 작성해라.",
         "형식:",
         "- 5줄 요약",
         "- 무엇이 새롭나",
@@ -121,7 +121,7 @@ def build_paper_review_pack(
         "## English prompt",
         "```text",
         "Role: You are a synthetic biology paper review editor.",
-        f"Goal: write an English paper review for {date_str} using the main paper and recommended papers below.",
+        f"Goal: write an English neural-circuit synthetic-biology paper review for {date_str} using the main paper and recommended papers below.",
         "Format:",
         "- 5-line summary",
         "- what's new",
@@ -151,6 +151,7 @@ def build_paper_review_pack(
             f"- DOI: {deep_paper.doi}",
             f"- URL: {deep_paper.url}",
             f"- Authors: {deep_paper.authors}",
+            f"- Why selected: {deep_paper.match_reason or '(no match reason recorded)'}",
             "",
             "### Abstract",
             deep_paper.abstract or "(no abstract)",
@@ -164,6 +165,7 @@ def build_paper_review_pack(
     for paper in recommended:
         lines += [
             f"- {paper.title} | {paper.venue} | {paper.published_date} | {paper.url}",
+            f"  - Why selected: {paper.match_reason or '(no match reason recorded)'}",
             f"  - Abstract hint: {(paper.abstract or '(no abstract)')[:280]}",
             "",
         ]

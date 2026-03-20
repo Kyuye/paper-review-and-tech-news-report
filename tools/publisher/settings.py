@@ -49,6 +49,20 @@ class SiteConfig:
     paper_recommend_count: int
 
 
+@dataclass(frozen=True)
+class PaperJournal:
+    name: str
+    group: str
+
+
+@dataclass(frozen=True)
+class PaperSearchConfig:
+    journals: tuple[PaperJournal, ...]
+    search_queries: tuple[str, ...]
+    synbio_keywords: tuple[str, ...]
+    neural_keywords: tuple[str, ...]
+
+
 def load_site_config() -> SiteConfig:
     root = repo_root()
     raw = load_yaml(root / "config" / "site.yaml")
@@ -110,18 +124,43 @@ def load_sources() -> list[Source]:
     return [s for s in out if s.name and s.feed_url]
 
 
-def load_paper_queries() -> list[dict[str, str]]:
+def load_paper_search_config() -> PaperSearchConfig:
     root = repo_root()
     raw = load_yaml(root / "config" / "paper_queries.yaml")
-    queries = raw.get("queries") or []
-    if not isinstance(queries, list):
-        raise ValueError("config/paper_queries.yaml: queries must be a list")
-    out: list[dict[str, str]] = []
-    for it in queries:
+    journals_raw = raw.get("journals") or []
+    queries_raw = raw.get("search_queries") or []
+    keywords_raw = raw.get("keywords") or {}
+
+    if not isinstance(journals_raw, list):
+        raise ValueError("config/paper_queries.yaml: journals must be a list")
+    if not isinstance(queries_raw, list):
+        raise ValueError("config/paper_queries.yaml: search_queries must be a list")
+    if not isinstance(keywords_raw, dict):
+        raise ValueError("config/paper_queries.yaml: keywords must be a mapping")
+
+    journals: list[PaperJournal] = []
+    for it in journals_raw:
         if not isinstance(it, dict):
             continue
-        q = str(it.get("query") or "").strip()
-        name = str(it.get("name") or "").strip() or "query"
-        if q:
-            out.append({"name": name, "query": q})
-    return out
+        name = str(it.get("name") or "").strip()
+        group = str(it.get("group") or "").strip()
+        if name and group:
+            journals.append(PaperJournal(name=name, group=group))
+
+    search_queries = tuple(str(it).strip() for it in queries_raw if str(it).strip())
+    synbio_keywords = tuple(str(it).strip() for it in (keywords_raw.get("synbio") or []) if str(it).strip())
+    neural_keywords = tuple(str(it).strip() for it in (keywords_raw.get("neural") or []) if str(it).strip())
+
+    if not journals:
+        raise ValueError("config/paper_queries.yaml: at least one journal is required")
+    if not search_queries:
+        raise ValueError("config/paper_queries.yaml: at least one search query is required")
+    if not synbio_keywords or not neural_keywords:
+        raise ValueError("config/paper_queries.yaml: synbio and neural keywords are required")
+
+    return PaperSearchConfig(
+        journals=tuple(journals),
+        search_queries=search_queries,
+        synbio_keywords=synbio_keywords,
+        neural_keywords=neural_keywords,
+    )

@@ -1,13 +1,44 @@
-# Paper search queries used for Tue/Thu paper-review drafts.
-# Keep queries broad; the selection stage will pick top items for deep review.
+# Paper search configuration used for Tue/Thu paper-review drafts.
+# Restricted to whitelisted Nature/Cell/Science journals plus neural-circuit synthetic biology relevance.
 
-queries:
-  - name: "Synthetic biology (general)"
-    query: "\"synthetic biology\" OR biofoundry OR \"cell-free\" OR \"gene circuit\""
+journals:
+  - name: "Nature"
+    group: "nature"
+  - name: "Nature Biotechnology"
+    group: "nature"
+  - name: "Nature Methods"
+    group: "nature"
+  - name: "Nature Chemical Biology"
+    group: "nature"
+  - name: "Nature Biomedical Engineering"
+    group: "nature"
+  - name: "Nature Communications"
+    group: "nature"
+  - name: "Nature Neuroscience"
+    group: "nature"
+  - name: "Cell"
+    group: "cell"
+  - name: "Cell Systems"
+    group: "cell"
+  - name: "Cell Reports"
+    group: "cell"
+  - name: "Cell Reports Methods"
+    group: "cell"
+  - name: "Science"
+    group: "science"
+  - name: "Science Advances"
+    group: "science"
+  - name: "Science Translational Medicine"
+    group: "science"
+  - name: "Science Signaling"
+    group: "science"
 
-  - name: "Biomanufacturing"
-    query: "biomanufacturing OR fermentation OR \"metabolic engineering\""
+search_queries:
+  - "\"synthetic biology\" neuron \"neural circuit\""
+  - "\"gene circuit\" neuron synapse"
+  - "optogenetic chemogenetic reporter neuron"
+  - "\"genetic recording\" \"neural interface\" synthetic biology"
 
-  - name: "Genome engineering"
-    query: "CRISPR OR \"base editor\" OR \"prime editing\" OR \"genome writing\""
-
+keywords:
+  synbio: ["synthetic biology", "gene circuit", "engineered circuit", "cell-free", "optogenetic", "chemogenetic", "biosensor", "reporter", "activity sensor", "genetic recording", "neural interface"]
+  neural: ["neural circuit", "neuronal circuit", "neuron", "brain", "synapse", "neuromodulation"]
