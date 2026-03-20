@@ -1,9 +1,10 @@
 ---
-title: "Biofoundry/Automation & AI"
+title: Biofoundry/Automation & AI
 topic: biofoundry_ai
 ---
 
 # Biofoundry/Automation & AI
 
-Latest links are auto-updated.
+## Latest
 
+- (No posts yet)
