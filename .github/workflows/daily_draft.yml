@@ -66,6 +66,7 @@ jobs:
           with open(out, "a", encoding="utf-8") as f:
               f.write(f"date={date_str}\n")
               f.write(f"kind={kind}\n")
+              f.write(f"branch_name=draft/{date_str}-{kind}\n")
               f.write("title<<EOF\n" + title + "\nEOF\n")
               f.write("body<<EOF\n" + body + "\nEOF\n")
           PY
@@ -76,16 +77,56 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "chore: candidate pack ${{ steps.meta.outputs.date }} (${{ steps.meta.outputs.kind }})"
-          branch: "draft/${{ steps.meta.outputs.date }}-${{ steps.meta.outputs.kind }}"
+          branch: "${{ steps.meta.outputs.branch_name }}"
           delete-branch: true
           title: "${{ steps.meta.outputs.title }}"
           body: "${{ steps.meta.outputs.body }}"
           labels: "candidate-pack,auto"
 
-      - name: Discord notify (PR link)
-        if: ${{ steps.cpr.outputs.pull-request-url != '' && steps.noop.outputs.no_draft == 'false' }}
+      - name: Resolve PR URL
+        id: prurl
+        if: ${{ steps.noop.outputs.no_draft == 'false' }}
         env:
-          PULL_REQUEST_URL: ${{ steps.cpr.outputs.pull-request-url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          CPR_PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+          BRANCH_NAME: ${{ steps.meta.outputs.branch_name }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.parse
+          import urllib.request
+
+          pr_url = (os.getenv("CPR_PR_URL") or "").strip()
+          if not pr_url:
+              repo = os.environ["GITHUB_REPOSITORY"]
+              owner = os.environ["REPOSITORY_OWNER"]
+              branch = os.environ["BRANCH_NAME"]
+              head = urllib.parse.quote(f"{owner}:{branch}", safe="")
+              url = f"https://api.github.com/repos/{repo}/pulls?state=open&head={head}"
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+                      "Accept": "application/vnd.github+json",
+                      "User-Agent": "daily-gitbook-candidate-pack",
+                  },
+              )
+              with urllib.request.urlopen(request, timeout=20) as response:
+                  payload = json.loads(response.read().decode("utf-8"))
+              if payload:
+                  pr_url = (payload[0].get("html_url") or "").strip()
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"pr_url={pr_url}\n")
+          PY
+
+      - name: Discord notify (PR link)
+        if: ${{ steps.prurl.outputs.pr_url != '' && steps.noop.outputs.no_draft == 'false' }}
+        env:
+          PULL_REQUEST_URL: ${{ steps.prurl.outputs.pr_url }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           python -m tools.publisher.send_preview_discord
