@@ -29,7 +29,7 @@ Notes:
 - `config/site.yaml`: base URL and lookback windows
 - `config/topics.yaml`: 8-category taxonomy + keyword hints
 - `config/sources.yaml`: RSS/Atom feeds for trends/news
-- `config/paper_queries.yaml`: paper search queries (Europe PMC)
+- `config/paper_queries.yaml`: whitelisted journals + neural-circuit synthetic-biology search config
 
 ## Local run (optional)
 

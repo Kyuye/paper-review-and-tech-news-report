@@ -146,12 +146,16 @@ def build_paper_review_template(
             f"- Date: {main_paper.published_date}",
             f"- DOI: {main_paper.doi}",
             f"- URL: {main_paper.url}",
+            f"- Why selected: {main_paper.match_reason or '(see candidate pack)'}",
             "",
         ]
     else:
         lines += [f"- {empty_text}", ""]
 
     for paper in recommended:
-        lines += [f"- [{paper.title}]({paper.url}) | {paper.venue} | {paper.published_date}"]
+        lines += [
+            f"- [{paper.title}]({paper.url}) | {paper.venue} | {paper.published_date}",
+            f"  - Why selected: {paper.match_reason or '(see candidate pack)'}",
+        ]
 
     return "\n".join(lines).rstrip() + "\n"
