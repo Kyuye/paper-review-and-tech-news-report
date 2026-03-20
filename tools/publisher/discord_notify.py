@@ -7,6 +7,7 @@ from urllib.request import Request, urlopen
 
 DISCORD_MAX_CHARS = 2000
 DEFAULT_SAFE_LIMIT = 1800
+DISCORD_USER_AGENT = "Mozilla/5.0 (compatible; GitBookCandidatePackBot/1.0; +https://github.com/Kyuye/paper-review-and-tech-news-report)"
 
 
 @dataclass(frozen=True)
@@ -39,9 +40,12 @@ def send_discord(*, webhook_url: str, text: str, timeout: int = 20) -> DiscordRe
         webhook_url,
         method="POST",
         data=body,
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            "Accept": "application/json, text/plain, */*",
+            "User-Agent": DISCORD_USER_AGENT,
+        },
     )
     with urlopen(req, timeout=timeout) as resp:
         resp_text = resp.read().decode("utf-8", errors="replace")
         return DiscordResult(ok=True, status=int(getattr(resp, "status", 200)), response_text=resp_text)
-
