@@ -7,4 +7,4 @@ topic: biofoundry_ai
 
 ## Latest
 
-- (No posts yet)
+- [2026-03-24] [논문리뷰 (2026-03-24)](ko/paper-reviews/2026-03-24-paper-review-2026-03-24.md)
