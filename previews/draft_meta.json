@@ -1,8 +1,8 @@
 {
   "ctx": {
     "kind": "trends",
-    "date_str": "2026-03-20",
-    "weekday": "fri"
+    "date_str": "2026-04-20",
+    "weekday": "mon"
   },
-  "pr_title": "[Draft] 2026-03-20 (Trends candidates)"
+  "pr_title": "[Draft] 2026-04-20 (Trends candidates)"
 }
