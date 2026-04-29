@@ -7,4 +7,4 @@ topic: genome_engineering
 
 ## Latest
 
-- (No posts yet)
+- [2026-04-29] [Trends & News (2026-04-29)](en/trends/2026-04-29.md)
