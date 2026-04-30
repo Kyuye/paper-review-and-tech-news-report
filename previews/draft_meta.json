@@ -1,8 +1,9 @@
 {
   "ctx": {
-    "kind": "trends",
-    "date_str": "2026-03-20",
-    "weekday": "fri"
+    "kind": "paper_review",
+    "date_str": "2026-04-30",
+    "weekday": "thu"
   },
-  "pr_title": "[Draft] 2026-03-20 (Trends candidates)"
+  "pr_title": "[Draft] 2026-04-30 (Paper review candidates)",
+  "slug": "a-midbrain-circuit-for-high-fat-food-induced-conditioned-taste-aversion"
 }
