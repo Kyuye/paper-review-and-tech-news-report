@@ -6,4 +6,5 @@ title: Trends & News
 
 ## Latest
 
+- [2026-05-04] [Trends & News (2026-05-04)](en/trends/2026-05-04.md)
 - [2026-03-20] [Trends & News (2026-03-20)](en/trends/2026-03-20.md)
