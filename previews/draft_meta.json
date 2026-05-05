@@ -1,8 +1,9 @@
 {
   "ctx": {
-    "kind": "trends",
-    "date_str": "2026-03-20",
-    "weekday": "fri"
+    "kind": "paper_review",
+    "date_str": "2026-05-05",
+    "weekday": "tue"
   },
-  "pr_title": "[Draft] 2026-03-20 (Trends candidates)"
+  "pr_title": "[Draft] 2026-05-05 (Paper review candidates)",
+  "slug": "noninvasive-focal-gene-transfer-of-chemogenetic-proteins-in-the-primate-brain"
 }
